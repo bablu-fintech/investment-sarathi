@@ -1,0 +1,372 @@
+/*=========================================
+Investment Sarathi
+Financial Health Score
+=========================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#F5F8FC;
+
+    color:#1E293B;
+
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
+
+.health{
+
+    padding:80px 0;
+
+}
+
+/*============================
+TITLE
+=============================*/
+
+.title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.title span{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.title h1{
+
+    font-size:52px;
+
+    color:#1E3A8A;
+
+    margin-bottom:18px;
+
+}
+
+.title p{
+
+    color:#64748B;
+
+    font-size:18px;
+
+}
+
+/*============================
+LAYOUT
+=============================*/
+
+.health-wrapper{
+
+    display:grid;
+
+    grid-template-columns:450px 1fr;
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+/*============================
+LEFT CARD
+=============================*/
+
+.health-form{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.health-form h2{
+
+    color:#1E3A8A;
+
+    margin-bottom:30px;
+
+}
+
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    outline:none;
+
+}
+
+.input-group input:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.10);
+
+}
+
+#calculateScore{
+
+    width:100%;
+
+    padding:17px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#10B981;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#calculateScore:hover{
+
+    background:#059669;
+
+}
+
+/*============================
+RIGHT CARD
+=============================*/
+
+.health-result{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/*============================
+SCORE CARD
+=============================*/
+
+.score-card{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:#fff;
+
+    border-radius:24px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 25px 60px rgba(37,99,235,.25);
+
+}
+
+.score-card h4{
+
+    font-size:20px;
+
+    opacity:.9;
+
+}
+
+.score-card h1{
+
+    font-size:90px;
+
+    margin:20px 0;
+
+    font-weight:800;
+
+}
+
+.score-card p{
+
+    font-size:26px;
+
+    font-weight:600;
+
+}
+
+/*============================
+AI CARD
+=============================*/
+
+.recommendation{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.recommendation h3{
+
+    color:#1E3A8A;
+
+    margin-bottom:20px;
+
+}
+
+.recommendation p{
+
+    color:#64748B;
+
+    line-height:1.9;
+
+    font-size:17px;
+
+}
+
+/*============================
+STATUS COLORS
+=============================*/
+
+.excellent{
+
+    color:#10B981;
+
+}
+
+.good{
+
+    color:#2563EB;
+
+}
+
+.average{
+
+    color:#F59E0B;
+
+}
+
+.poor{
+
+    color:#EF4444;
+
+}
+
+/*============================
+RESPONSIVE
+=============================*/
+
+@media(max-width:992px){
+
+.health-wrapper{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.health{
+
+    padding:50px 0;
+
+}
+
+.title h1{
+
+    font-size:38px;
+
+}
+
+.score-card h1{
+
+    font-size:70px;
+
+}
+
+.health-form,
+.recommendation,
+.score-card{
+
+    padding:25px;
+
+}
+
+.container{
+
+    width:94%;
+
+}
+
+}
