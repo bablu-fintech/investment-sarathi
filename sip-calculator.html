@@ -287,19 +287,47 @@ SWP CALCULATOR
 
             <h2>SWP Calculator</h2>
 
-            <p style="margin-top:20px;">
-                🚀 SWP Calculator will be available in Version 1.1
-            </p>
+            <div class="input-group">
+                <label>Initial Investment (₹)</label>
+                <input type="number" id="swpAmount" value="1000000">
+            </div>
+
+            <div class="input-group">
+                <label>Monthly Withdrawal (₹)</label>
+                <input type="number" id="withdrawal" value="10000">
+            </div>
+
+            <div class="input-group">
+                <label>Expected Return (%)</label>
+                <input type="number" id="swpRate" value="10">
+            </div>
+
+            <div class="input-group">
+                <label>Duration (Years)</label>
+                <input type="number" id="swpYears" value="20">
+            </div>
+
+            <button id="calculateSWP">
+                Calculate SWP
+            </button>
 
         </div>
 
         <div class="result-card">
 
-            <h2>Coming Soon</h2>
+            <h2>SWP Summary</h2>
 
-            <p>
-                Systematic Withdrawal Planning with interactive charts and reports.
-            </p>
+            <div class="summary-item">
+                <span>Total Withdrawal</span>
+                <h3 id="totalWithdrawal">₹0</h3>
+            </div>
+
+            <div class="summary-item">
+                <span>Remaining Corpus</span>
+                <h2 id="remainingCorpus">₹0</h2>
+            </div>
+
+            <canvas id="swpChart"></canvas>
 
         </div>
 
