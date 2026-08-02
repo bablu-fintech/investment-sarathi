@@ -60,6 +60,13 @@ MENU
 💸 SWP
 </button>
 
+<button
+class="calc-tab"
+data-tab="goal">
+
+🎯 Goal Planner
+
+</button>
 </div>
 
 <!-- ===========================
@@ -300,7 +307,157 @@ SWP CALCULATOR
     </div>
 
 </div>
+<!-- ===========================
+GOAL PLANNER
+=========================== -->
 
+<div id="goal-section"
+class="calculator-section"
+style="display:none;">
+
+<div class="calculator-grid">
+
+<!-- Left Card -->
+
+<div class="calculator-card">
+
+<h2>🎯 Goal Planner</h2>
+
+<div class="input-group">
+<label>Goal Name</label>
+<select id="goalType">
+
+<option value="home">🏠 Dream Home</option>
+
+<option value="car">🚗 Buy Car</option>
+
+<option value="education">🎓 Child Education</option>
+
+<option value="marriage">💍 Marriage</option>
+
+<option value="travel">✈️ Foreign Trip</option>
+
+<option value="retirement">🏖️ Retirement</option>
+
+<option value="wealth">💰 Wealth Creation</option>
+
+<option value="custom">🎯 Custom Goal</option>
+
+</select>
+</div>
+<div class="input-group">
+<label>Target Amount (₹)</label>
+<input
+type="number"
+id="goalAmount"
+value="10000000">
+</div>
+
+<div class="input-group">
+<label>Current Savings (₹)</label>
+<input
+type="number"
+id="currentSavings"
+value="500000">
+</div>
+
+<div class="input-group">
+<label>Years Left</label>
+<input
+type="number"
+id="goalYears"
+value="20">
+</div>
+
+<div class="input-group">
+<label>Expected Return (%)</label>
+<input
+type="number"
+id="goalRate"
+value="12">
+</div>
+
+<button id="calculateGoal">
+
+Calculate Goal
+
+</button>
+
+</div>
+
+<!-- Right Card -->
+
+<div class="result-card">
+
+<h2>Goal Summary</h2>
+
+<div class="summary-item">
+
+<span>Required Monthly SIP</span>
+
+<h3 id="goalSip">₹0</h3>
+
+</div>
+
+<div class="summary-item">
+
+<span>Target Amount</span>
+
+<h3 id="goalTarget">₹0</h3>
+
+</div>
+
+<div class="summary-item">
+
+<span>Current Savings</span>
+
+<h3 id="goalCurrent">₹0</h3>
+
+</div>
+
+<div class="summary-item">
+
+<span>Goal Achievement</span>
+<div class="progress-box">
+
+    <div class="progress-title">
+
+        Goal Progress
+
+    </div>
+
+    <div class="progress">
+
+        <div
+        id="goalProgress"
+        class="progress-fill">
+
+        </div>
+
+    </div>
+
+</div>
+<h2 id="goalPercent">0%</h2>
+
+</div>
+
+<canvas id="goalChart"></canvas>
+
+<div class="ai-box">
+
+<h3>🤖 Investment Sarathi Coach</h3>
+
+<p id="goalAdvice">
+
+Calculate your Goal.
+
+</p>
+
+        </div> <!-- result-card -->
+
+    </div> <!-- calculator-grid -->
+
+</div> <!-- goal-section -->
 <!-- ===========================
 FOOTER
 =========================== -->

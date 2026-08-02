@@ -6,7 +6,15 @@
 // ==========================
 // Global Variables
 // ==========================
+window.onload = function () {
 
+    
+
+    calculateSIP();
+    calculateLumpsum();
+    calculateSWP();
+
+};
 console.log("sip.js loaded");
 
 let sipChart = null;
@@ -28,30 +36,36 @@ function formatCurrency(value) {
 // Calculator Tab Switching
 // ==========================
 
-function showCalculator(type) {
+function showCalculator(type){
+
+    console.log(type);
 
     $("sip-section").style.display = "none";
     $("lumpsum-section").style.display = "none";
     $("swp-section").style.display = "none";
-
+$("goal-section").style.display = "none";
     document.querySelectorAll(".calc-tab")
         .forEach(btn => btn.classList.remove("active"));
 
     switch(type){
 
-        case "sip":
-            $("sip-section").style.display = "block";
-            break;
+    case "sip":
+        $("sip-section").style.display = "block";
+        break;
 
-        case "lumpsum":
-            $("lumpsum-section").style.display = "block";
-            break;
+    case "lumpsum":
+        $("lumpsum-section").style.display = "block";
+        break;
 
-        case "swp":
-            $("swp-section").style.display = "block";
-            break;
+    case "swp":
+        $("swp-section").style.display = "block";
+        break;
 
-    }
+    case "goal":
+        $("goal-section").style.display = "block";
+        break;
+
+}
 
     document
         .querySelector(`[data-tab="${type}"]`)
@@ -70,6 +84,7 @@ document.querySelectorAll(".calc-tab").forEach(btn=>{
 });
 
 showCalculator("sip");
+
 // ==========================
 // SIP Calculator
 // // ==========================
@@ -443,3 +458,163 @@ $("calculateSWP").addEventListener(
 });
 
 calculateSWP();
+// ==========================
+// Goal Planner
+// ==========================
+
+let goalChart = null;
+
+function calculateGoal() {
+
+    const target = Number($("goalAmount").value);
+    const current = Number($("currentSavings").value);
+    const years = Number($("goalYears").value);
+    const annualRate = Number($("goalRate").value);
+
+    if (target <= 0 || years <= 0 || annualRate <= 0) {
+        return;
+    }
+
+    const monthlyRate = annualRate / 12 / 100;
+    const months = years * 12;
+
+    const futureCurrent =
+        current * Math.pow(1 + monthlyRate, months);
+
+    const requiredAmount =
+        Math.max(target - futureCurrent, 0);
+
+    let sip = 0;
+
+    if (requiredAmount > 0) {
+
+        sip =
+            requiredAmount *
+            monthlyRate /
+            (Math.pow(1 + monthlyRate, months) - 1);
+
+    }
+
+    $("goalSip").innerText =
+        formatCurrency(sip);
+
+    $("goalTarget").innerText =
+        formatCurrency(target);
+
+    $("goalCurrent").innerText =
+        formatCurrency(current);
+
+   const percent =
+    Math.min((current / target) * 100, 100);
+
+    $("goalPercent").innerText =
+        percent.toFixed(1) + "%";
+            // ==========================
+    // Goal Chart
+    // ==========================
+
+    if (goalChart) {
+        goalChart.destroy();
+    }
+
+    const ctx = $("goalChart").getContext("2d");
+
+    goalChart = new Chart(ctx, {
+
+        type: "doughnut",
+
+        data: {
+
+            labels: [
+                "Current Savings",
+                "Remaining Goal"
+            ],
+
+            datasets: [{
+
+                data: [
+                    current,
+                    Math.max(target - current, 0)
+                ],
+
+                backgroundColor: [
+                    "#10B981",
+                    "#2563EB"
+                ],
+
+                borderWidth: 0
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    position: "bottom"
+
+                }
+
+            }
+
+        }
+
+    });
+
+    // ==========================
+    // AI Goal Coach
+    // ==========================
+
+    let advice = "";
+
+    if (percent >= 80) {
+
+        advice =
+        "🟢 Excellent! You are on track to achieve your goal. Continue investing consistently.";
+
+    }
+    else if (percent >= 50) {
+
+        advice =
+        "🟡 Good Progress! Increase your monthly SIP slightly to reach your goal comfortably.";
+
+    }
+    else {
+
+        advice =
+        "🔴 You need a higher monthly investment or a longer investment period to achieve this goal.";
+
+    }
+
+    $("goalAdvice").innerText = advice;
+
+}
+// ==========================
+// Goal Planner Events
+// ==========================
+
+$("calculateGoal").addEventListener(
+    "click",
+    calculateGoal
+);
+
+[
+    "goalAmount",
+    "currentSavings",
+    "goalYears",
+    "goalRate"
+].forEach(id => {
+
+    $(id).addEventListener(
+        "input",
+        calculateGoal
+    );
+
+});
+
+calculateGoal();
