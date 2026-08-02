@@ -3,240 +3,319 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>SIP Calculator | Investment Sarathi</title>
+<title>
+Investment Calculator | Investment Sarathi
+</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
-    <link rel="stylesheet" href="css/calculator.css">
-<link rel="stylesheet" href="css/sip.css">
+<link rel="stylesheet"
+href="css/sip.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
 
-<section class="sip-section">
+<section class="calculator-page">
 
-    <div class="container">
+<div class="container">
 
-        <div class="title">
+<!-- Header -->
 
-            <span>Investment Sarathi</span>
+<div class="page-header">
 
-            <h1>Professional SIP Calculator</h1>
+<span>
 
-            <p>
-                Calculate your future wealth with Monthly SIP,
-                Step-Up SIP and Expected Returns.
+Investment Sarathi
+
+</span>
+
+<h1>
+
+Investment Calculator Suite
+
+</h1>
+
+<p>
+
+Plan your Investments using SIP,
+Lumpsum and SWP Calculator.
+
+</p>
+
+</div>
+
+<!-- Calculator Menu -->
+
+<div class="calculator-menu">
+
+<button
+class="calc-tab active"
+data-tab="sip">
+
+📈 SIP
+
+</button>
+
+<button
+class="calc-tab"
+data-tab="lumpsum">
+
+💰 Lumpsum
+
+</button>
+
+<button
+class="calc-tab"
+data-tab="swp">
+
+💸 SWP
+
+</button>
+
+</div>
+<!-- ===========================
+SIP CALCULATOR
+=========================== -->
+
+<div id="sip-section" class="calculator-section">
+
+    <div class="calculator-grid">
+
+        <!-- Left Card -->
+
+        <div class="calculator-card">
+
+            <h2>SIP Calculator</h2>
+
+            <div class="input-group">
+
+                <label>Monthly SIP (₹)</label>
+
+                <input
+                    type="number"
+                    id="sipAmount"
+                    value="5000"
+                    min="500"
+                    step="500">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Investment Period (Years)</label>
+
+                <input
+                    type="number"
+                    id="years"
+                    value="20">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Expected Return (%)</label>
+
+                <input
+                    type="number"
+                    id="returnRate"
+                    value="12"
+                    step="0.5">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Annual SIP Increase (%)</label>
+
+                <input
+                    type="number"
+                    id="stepUp"
+                    value="10">
+
+            </div>
+
+            <button id="calculateBtn">
+
+                Calculate SIP
+
+            </button>
+
+        </div>
+
+        <!-- Right Card -->
+
+        <div class="result-card">
+
+            <h2>Investment Summary</h2>
+
+            <div class="summary-item">
+
+                <span>Total Investment</span>
+
+                <h3 id="invested">₹0</h3>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span>Estimated Returns</span>
+
+                <h3 id="returns">₹0</h3>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span>Future Value</span>
+
+                <h2 id="futureValue">₹0</h2>
+
+            </div>
+
+            <canvas id="sipChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ===========================
+LUMPSUM CALCULATOR
+=========================== -->
+
+<div id="lumpsum-section" class="calculator-section" style="display:none;">
+
+    <div class="calculator-grid">
+
+        <div class="calculator-card">
+
+            <h2>Lumpsum Calculator</h2>
+
+            <div class="input-group">
+
+                <label>Investment Amount (₹)</label>
+
+                <input type="number" id="lumpAmount" value="100000">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Investment Period (Years)</label>
+
+                <input type="number" id="lumpYears" value="10">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Expected Return (%)</label>
+
+                <input type="number" id="lumpRate" value="12">
+
+            </div>
+
+            <button id="calculateLump">
+
+                Calculate Lumpsum
+
+            </button>
+
+        </div>
+
+        <div class="result-card">
+
+            <h2>Lumpsum Summary</h2>
+
+            <div class="summary-item">
+
+                <span>Investment</span>
+
+                <h3 id="lumpInvested">₹0</h3>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span>Estimated Profit</span>
+
+                <h3 id="lumpProfit">₹0</h3>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span>Future Value</span>
+
+                <h2 id="lumpFuture">₹0</h2>
+
+            </div>
+
+            <canvas id="lumpChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===========================
+SWP CALCULATOR
+=========================== -->
+
+<div id="swp-section" class="calculator-section" style="display:none;">
+
+    <div class="calculator-grid">
+
+        <div class="calculator-card">
+
+            <h2>SWP Calculator</h2>
+
+            <p style="margin-top:20px;">
+                🚀 SWP Calculator will be available in Version 1.1
             </p>
 
         </div>
 
-        <div class="calculator-wrapper">
-            <!-- Lumpsum Calculator -->
+        <div class="result-card">
 
-<div class="calculator-wrapper" id="lumpsumCalculator" style="display:none;">
+            <h2>Coming Soon</h2>
 
-    <div class="calculator-card">
-
-        <h2>Lumpsum Details</h2>
-
-        <div class="input-group">
-            <label>Investment Amount (₹)</label>
-            <input type="number" id="lumpAmount" value="100000">
-        </div>
-
-        <div class="input-group">
-            <label>Investment Period (Years)</label>
-            <input type="number" id="lumpYears" value="10">
-        </div>
-
-        <div class="input-group">
-            <label>Expected Return (%)</label>
-            <input type="number" id="lumpRate" value="12">
-        </div>
-
-        <button id="calculateLump">
-
-            Calculate Lumpsum
-
-        </button>
-
-    </div>
-
-    <div class="result-card">
-
-        <h2>Lumpsum Summary</h2>
-
-        <div class="result-box">
-
-            <div>
-                <span>Invested</span>
-                <h3 id="lumpInvested">₹0</h3>
-            </div>
-
-            <div>
-                <span>Profit</span>
-                <h3 id="lumpProfit">₹0</h3>
-            </div>
-
-            <div>
-                <span>Future Value</span>
-                <h2 id="lumpFuture">₹0</h2>
-            </div>
+            <p>
+                Systematic Withdrawal Planning with interactive charts and reports.
+            </p>
 
         </div>
-
-        <canvas id="lumpChart"></canvas>
 
     </div>
 
 </div>
-<div class="calculator-tabs">
-
-    <button class="tab-btn active" data-tab="sip">
-        SIP
-    </button>
-
-    <button class="tab-btn" data-tab="lumpsum">
-        Lumpsum
-    </button>
-
-    <button class="tab-btn" data-tab="swp">
-        SWP
-    </button>
+<!-- ===========================
+FOOTER
+=========================== -->
 
 </div>
-            <!-- LEFT SIDE -->
-
-            <div class="calculator-card">
-
-                <h2>SIP Details</h2>
-
-                <div class="input-group">
-
-                    <label>Monthly SIP (₹)</label>
-
-                    <input
-                        type="number"
-                        id="sipAmount"
-                        value="5000"
-                        min="500"
-                        step="500">
-
-                </div>
-
-                <div class="input-group">
-
-                    <label>Investment Period (Years)</label>
-
-                    <input
-                        type="number"
-                        id="years"
-                        value="20"
-                        min="1"
-                        max="40">
-
-                </div>
-
-                <div class="input-group">
-
-                    <label>Expected Return (%)</label>
-
-                    <input
-                        type="number"
-                        id="returnRate"
-                        value="12"
-                        step="0.5">
-
-                </div>
-
-                <div class="input-group">
-
-                    <label>Annual SIP Increase (%)</label>
-
-                    <input
-                        type="number"
-                        id="stepUp"
-                        value="10"
-                        step="1">
-
-                </div>
-
-                <button id="calculateBtn">
-
-                    Calculate SIP
-
-                </button>
-
-            </div>
-
-            <!-- RIGHT SIDE -->
-
-            <div class="result-card">
-
-                <h2>Investment Summary</h2>
-
-                <div class="result-box">
-
-                    <div>
-
-                        <span>Total Invested</span>
-
-                        <h3 id="invested">
-
-                            ₹0
-
-                        </h3>
-
-                    </div>
-
-                    <div>
-
-                        <span>Estimated Returns</span>
-
-                        <h3 id="returns">
-
-                            ₹0
-
-                        </h3>
-
-                    </div>
-
-                    <div>
-
-                        <span>Future Value</span>
-
-                        <h2 id="futureValue">
-
-                            ₹0
-
-                        </h2>
-
-                    </div>
-
-                </div>
-
-                <canvas id="sipChart"></canvas>
-
-            </div>
-
-        </div>
-
-    </div>
 
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="js/calculator.js"></script>
 <script src="js/sip.js"></script>
+
 </body>
 
 </html>

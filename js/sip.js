@@ -1,146 +1,199 @@
-function calculateSIP() {
+/*==================================================
+ Investment Sarathi
+ Calculator Suite v1.1
+==================================================*/
 
-    const monthly = parseFloat(document.getElementById("monthly").value);
+// ==========================
+// Global Variables
+// ==========================
+console.log("sip.js loaded");
+let sipChart = null;
+let lumpChart = null;
 
-    const annualRate = parseFloat(document.getElementById("rate").value);
+// ==========================
+// Currency Formatter
+// ==========================
 
-    const years = parseFloat(document.getElementById("years").value);
+function formatCurrency(value) {
 
-    if (!monthly || !annualRate || !years) {
-
-        alert("Please enter all values.");
-
-        return;
-
-    }
-
-    const monthlyRate = annualRate / 12 / 100;
-
-    const months = years * 12;
-
-    const maturityValue =
-        monthly *
-        (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) *
-            (1 + monthlyRate));
-
-    const invested = monthly * months;
-
-    const gain = maturityValue - invested;
-
-    document.getElementById("investment").innerHTML =
-        "₹ " + invested.toLocaleString("en-IN", {
-            maximumFractionDigits: 0
-        });
-
-    document.getElementById("returns").innerHTML =
-        "₹ " + gain.toLocaleString("en-IN", {
-            maximumFractionDigits: 0
-        });
-
-    document.getElementById("total").innerHTML =
-        "₹ " + maturityValue.toLocaleString("en-IN", {
-            maximumFractionDigits: 0
-        });
+    return "₹" + Math.round(value).toLocaleString("en-IN");
 
 }
-// =========================================
+
+// ==========================
+// Get Element Shortcut
+// ==========================
+
+function $(id) {
+
+    return document.getElementById(id);
+
+}
+// ==========================
+// // ==============================
 // Calculator Tab Switching
-// =========================================
+// ==============================
 
-const tabs = document.querySelectorAll(".tab-btn");
+function showCalculator(type) {
 
-const sipSection = document.querySelector(".calculator-wrapper");
+    $("sip-section").style.display = "none";
+    $("lumpsum-section").style.display = "none";
+    $("swp-section").style.display = "none";
 
-const lumpSection = document.getElementById("lumpsumCalculator");
+    document.querySelectorAll(".calc-tab")
+        .forEach(btn => btn.classList.remove("active"));
 
-tabs.forEach(tab => {
+    if (type === "sip") {
+        $("sip-section").style.display = "block";
+    }
 
-    tab.addEventListener("click", () => {
+    if (type === "lumpsum") {
+        $("lumpsum-section").style.display = "block";
+    }
 
-        tabs.forEach(btn => btn.classList.remove("active"));
+    if (type === "swp") {
+        $("swp-section").style.display = "block";
+    }
 
-        tab.classList.add("active");
+    document
+        .querySelector(`[data-tab="${type}"]`)
+        .classList.add("active");
+}
 
-        const type = tab.dataset.tab;
+document.querySelectorAll(".calc-tab").forEach(btn => {
 
-        if (type === "sip") {
+    btn.addEventListener("click", function () {
 
-            sipSection.style.display = "grid";
-            lumpSection.style.display = "none";
-
-        }
-
-        if (type === "lumpsum") {
-
-            sipSection.style.display = "none";
-            lumpSection.style.display = "grid";
-
-        }
-
-        if (type === "swp") {
-
-            alert("SWP Calculator Coming Soon");
-
-        }
+        showCalculator(this.dataset.tab);
 
     });
 
 });
-// =========================================
-// Lumpsum Calculator
-// =========================================
 
-function calculateLumpsum() {
+// Default Page
+showCalculator("sip");
+// ==========================
+// SIP Calculator
+// ==========================
 
-    const amount = Number(document.getElementById("lumpAmount").value);
+function calculateSIP() {
 
-    const years = Number(document.getElementById("lumpYears").value);
+    const sip = Number($("sipAmount").value);
 
-    const rate = Number(document.getElementById("lumpRate").value);
+    const years = Number($("years").value);
 
-    if (!amount || !years || !rate) {
+    const annualRate = Number($("returnRate").value);
 
-        alert("Please enter all values.");
+    const stepUp = Number($("stepUp").value);
+
+    if (sip <= 0 || years <= 0 || annualRate <= 0) {
 
         return;
 
     }
 
-    const futureValue = amount * Math.pow((1 + rate / 100), years);
+    let invested = 0;
 
-    const profit = futureValue - amount;
+    let futureValue = 0;
 
-    document.getElementById("lumpInvested").innerText =
-        formatCurrency(amount);
+    let monthlySip = sip;
 
-    document.getElementById("lumpProfit").innerText =
-        formatCurrency(profit);
+    const monthlyRate = annualRate / 12 / 100;
 
-    document.getElementById("lumpFuture").innerText =
+    for (let y = 1; y <= years; y++) {
+
+        for (let m = 1; m <= 12; m++) {
+
+            const remainingMonths =
+                (years - y) * 12 + (12 - m + 1);
+
+            futureValue +=
+                monthlySip *
+                Math.pow(1 + monthlyRate, remainingMonths);
+
+            invested += monthlySip;
+
+        }
+
+        monthlySip *= (1 + stepUp / 100);
+
+    }
+
+    const returns = futureValue - invested;
+
+    $("invested").innerText = formatCurrency(invested);
+
+    $("returns").innerText = formatCurrency(returns);
+
+    $("futureValue").innerText =
         formatCurrency(futureValue);
 
 }
-// Lumpsum Button
+// ==========================
+// Events
+// ==========================
 
-document
-.getElementById("calculateLump")
-.addEventListener("click", calculateLumpsum);
-
-// Auto Calculate
+$("calculateBtn").addEventListener(
+    "click",
+    calculateSIP
+);
 
 [
-"lumpAmount",
-"lumpYears",
-"lumpRate"
+"sipAmount",
+"years",
+"returnRate",
+"stepUp"
 
 ].forEach(id=>{
 
-document
-.getElementById(id)
-.addEventListener("input",calculateLumpsum);
+$(id).addEventListener(
+"input",
+calculateSIP
+);
 
 });
 
 // First Load
+
+calculateSIP();
+// ==========================
+// Lumpsum Calculator
+// ==========================
+
+function calculateLumpsum() {
+
+    const amount = Number($("lumpAmount").value);
+    const years = Number($("lumpYears").value);
+    const rate = Number($("lumpRate").value);
+
+    if (amount <= 0 || years <= 0 || rate <= 0) return;
+
+    const futureValue =
+        amount * Math.pow(1 + rate / 100, years);
+
+    const profit = futureValue - amount;
+
+    $("lumpInvested").innerText = formatCurrency(amount);
+    $("lumpProfit").innerText = formatCurrency(profit);
+    $("lumpFuture").innerText = formatCurrency(futureValue);
+
+}
+$("calculateLump").addEventListener(
+    "click",
+    calculateLumpsum
+);
+
+[
+    "lumpAmount",
+    "lumpYears",
+    "lumpRate"
+].forEach(id => {
+
+    $(id).addEventListener(
+        "input",
+        calculateLumpsum
+    );
+
+});
 
 calculateLumpsum();

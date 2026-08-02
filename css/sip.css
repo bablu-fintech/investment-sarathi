@@ -1,124 +1,533 @@
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f7fb;
+/*=========================================================
+ Investment Sarathi
+ Investment Calculator Suite
+ Version : 1.1
+=========================================================*/
+
+/*==========================
+ GOOGLE FONT
+==========================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*==========================
+ RESET
+==========================*/
+
+*{
     margin:0;
     padding:0;
-}
-
-.sip-container{
-    max-width:600px;
-    margin:40px auto;
-    background:#fff;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
-
-h1{
-    text-align:center;
-    color:#0d47a1;
-    margin-bottom:30px;
-}
-
-label{
-    display:block;
-    margin-top:20px;
-    font-weight:bold;
-}
-
-input{
-    width:100%;
-    padding:12px;
-    margin-top:8px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
     box-sizing:border-box;
 }
 
-button{
-    width:100%;
-    padding:14px;
-    margin-top:30px;
-    background:#1565c0;
-    color:white;
-    border:none;
-    border-radius:8px;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F4F8FD;
+    color:#163A70;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/*==========================
+ PAGE
+==========================*/
+
+.calculator-page{
+    padding:70px 0;
+}
+
+/*==========================
+ HEADER
+==========================*/
+
+.page-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.page-header span{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+    font-weight:600;
+
+}
+
+.page-header h1{
+
+    font-size:48px;
+
+    margin-top:20px;
+
+    color:#163A70;
+
+    font-weight:700;
+
+}
+
+.page-header p{
+
+    margin-top:15px;
+
+    color:#64748B;
+
     font-size:18px;
-    cursor:pointer;
+
 }
 
-button:hover{
-    background:#0d47a1;
-}
+/*==========================
+ MENU
+==========================*/
 
-.result{
-    margin-top:30px;
-    background:#f1f8ff;
-    padding:20px;
-    border-radius:10px;
-}
-
-.result h2{
-    margin:15px 0 5px;
-    color:#1565c0;
-}
-
-.result p{
-    font-size:22px;
-    font-weight:bold;
-    color:#2e7d32;
-}
-/* ===========================
-   Calculator Tabs
-=========================== */
-
-.calculator-tabs{
+.calculator-menu{
 
     display:flex;
 
     justify-content:center;
 
-    gap:15px;
-
-    margin-bottom:35px;
+    gap:20px;
 
     flex-wrap:wrap;
 
+    margin-bottom:50px;
+
 }
 
-.tab-btn{
+.calc-tab{
 
-    padding:14px 30px;
+    padding:16px 36px;
 
     border:none;
 
     border-radius:50px;
 
-    background:#e5e7eb;
+    background:#E8EEF9;
 
-    cursor:pointer;
+    color:#163A70;
 
-    font-size:16px;
+    font-size:17px;
 
     font-weight:600;
+
+    cursor:pointer;
 
     transition:.3s;
 
 }
 
-.tab-btn:hover{
+.calc-tab:hover{
 
-    background:#2563eb;
+    background:#2563EB;
 
     color:#fff;
+
+    transform:translateY(-4px);
 
 }
 
-.tab-btn.active{
+.calc-tab.active{
 
-    background:#2563eb;
+    background:#2563EB;
 
     color:#fff;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.25);
+
+}
+/*==========================
+ CALCULATOR GRID
+==========================*/
+
+.calculator-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:35px;
+
+    align-items:start;
+
+}
+
+/*==========================
+ CARDS
+==========================*/
+
+.calculator-card,
+.result-card{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    box-shadow:0 20px 50px rgba(15,23,42,.08);
+
+    transition:.3s;
+
+}
+
+.calculator-card:hover,
+.result-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.calculator-card h2,
+.result-card h2{
+
+    color:#163A70;
+
+    margin-bottom:25px;
+
+    font-size:28px;
+
+}
+
+/*==========================
+ INPUTS
+==========================*/
+
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.input-group input:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+/*==========================
+ BUTTON
+==========================*/
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+/*==========================
+ RESULT SUMMARY
+==========================*/
+
+.summary-item{
+
+    padding:18px 0;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.summary-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.summary-item span{
+
+    display:block;
+
+    color:#64748B;
+
+    font-size:15px;
+
+    margin-bottom:6px;
+
+}
+
+.summary-item h3{
+
+    color:#163A70;
+
+    font-size:26px;
+
+    font-weight:700;
+
+}
+
+.summary-item h2{
+
+    color:#10B981;
+
+    font-size:34px;
+
+    font-weight:800;
+
+}
+
+/*==========================
+ CHART
+==========================*/
+
+canvas{
+
+    width:100% !important;
+
+    max-height:320px;
+
+    margin-top:30px;
+
+}
+
+/*==========================
+ SECTION
+==========================*/
+
+.calculator-section{
+
+    animation:fadeIn .35s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================
+ RESPONSIVE
+==========================*/
+
+@media(max-width:992px){
+
+    .calculator-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .page-header h1{
+
+        font-size:34px;
+
+    }
+
+    .page-header p{
+
+        font-size:16px;
+
+    }
+
+    .calculator-card,
+    .result-card{
+
+        padding:25px;
+
+    }
+
+    .calc-tab{
+
+        width:100%;
+
+    }
+
+}
+/*==========================
+ PREMIUM EFFECTS
+==========================*/
+
+.calculator-card,
+.result-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.calculator-card::before,
+.result-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:linear-gradient(
+        90deg,
+        #2563EB,
+        #10B981
+    );
+
+}
+
+.calculator-card:hover,
+.result-card:hover{
+
+    box-shadow:0 25px 60px rgba(37,99,235,.12);
+
+}
+
+/*==========================
+ AI RECOMMENDATION
+==========================*/
+
+.ai-box{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    background:#EFF6FF;
+
+    border-left:5px solid #2563EB;
+
+    border-radius:16px;
+
+}
+
+.ai-box h3{
+
+    color:#163A70;
+
+    margin-bottom:15px;
+
+}
+
+.ai-box p{
+
+    color:#475569;
+
+    line-height:1.8;
+
+}
+
+/*==========================
+ COMING SOON
+==========================*/
+
+.coming-soon{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:#64748B;
+
+}
+
+.coming-soon h2{
+
+    color:#163A70;
+
+    margin-bottom:15px;
+
+}
+
+/*==========================
+ FOOTER SPACE
+==========================*/
+
+.calculator-page{
+
+    padding-bottom:80px;
 
 }
