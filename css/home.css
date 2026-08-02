@@ -17,36 +17,437 @@ body{
 }
 
 .header{
+    width:100%;
     background:#fff;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .navbar{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    padding:20px 0;
+    justify-content:space-between;
+    gap:20px;
+    padding:18px 0;
 }
 
-.logo h2{
-    color:#2563EB;
-    font-size:30px;
-    font-weight:700;
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-shrink:0;
+
 }
 
+.logo img{
+    width:60px;
+    height:60px;
+}
+
+.logo-text h2{
+    font-size:22px;
+    margin-bottom:2px;
+}
+
+.logo-text p{
+    font-size:13px;
+    color:#64748B;
+}
 .nav-links{
     display:flex;
+    align-items:center;
     list-style:none;
-    gap:30px;
+    gap:18px;          /* আগে 28px ছিল */
+    margin-left:auto;
+    margin-right:20px;
+    flex-wrap:nowrap;
+}
+
+.nav-links li{
+
+    white-space:nowrap;
+
 }
 
 .nav-links a{
     text-decoration:none;
     color:#163A70;
     font-weight:600;
-    transition:.3s;
+    font-size:15px;    /* আগে 16px */
 }
 
-.nav-links a:hover{
+.cta-btn{
+
+    margin-left:-20px;
+
+    padding:12px 22px;
+
+    background:#10B981;
+
+    color:#fff;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:200;
+ flex-shrink:0;
+    white-space:nowrap;
+
+}
+.logo-wrapper{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:inherit;
+}
+
+.logo-wrapper:hover{
+    opacity:.9;
+}
+/*=====================================
+HERO SECTION
+/* =========================
+   HERO LAYOUT FIX
+========================= */
+
+.hero{
+    padding:80px 0;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:70px;
+    align-items:center;
+}
+
+.hero-left{
+    display:flex;
+    flex-direction:column;
+}
+
+.hero-right{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.dashboard-card{
+    width:100%;
+    max-width:520px;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+/* Portfolio */
+
+.portfolio-card{
+    width:100%;
+    padding:35px;
+    border-radius:24px;
+}
+
+/* Chart */
+
+.chart-card{
+    width:100%;
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.chart-card canvas{
+    width:100% !important;
+    height:240px !important;
+}
+
+/* Investments */
+
+.investment-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.investment-item{
+    padding:25px;
+}
+
+/* Hero Stats */
+
+.hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:45px;
+}
+
+.stat-card{
+    width:100%;
+    padding:25px 20px;
+}
+
+.stat-card h2,
+.stat-card h3{
+    font-size:34px;
     color:#2563EB;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    font-size:16px;
+    line-height:1.5;
+}
+
+/* Mobile */
+
+@media(max-width:992px){
+
+.hero-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+}
+
+.hero-left{
+    text-align:center;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.hero-stats{
+    grid-template-columns:1fr;
+}
+
+.investment-grid{
+    grid-template-columns:1fr;
+}
+
+.dashboard-card{
+    max-width:100%;
+}
+
+.hero-left h1{
+    font-size:52px;
+}
+
+}
+.btn-primary{
+    display:inline-block;
+    padding:16px 34px;
+    background:#10B981;
+    color:#fff;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.btn-outline{
+    display:inline-block;
+    padding:16px 34px;
+    border:2px solid #2563EB;
+    color:#2563EB;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:600;
+}
+/* ==========================
+   Dashboard
+========================== */
+
+.dashboard-card{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.chart-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    height:320px;
+}
+
+.chart-card canvas{
+    width:100% !important;
+    height:220px !important;
+    display:block;
+}
+
+.investment-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.investment-item{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.investment-item h4{
+    color:#163A70;
+    margin-bottom:10px;
+}
+
+.investment-item p{
+    font-size:34px;
+    font-weight:700;
+    color:#10B981;
+}
+
+.profit{
+    color:#22C55E;
+    font-weight:600;
+}
+/* ==========================
+   FEATURES
+========================== */
+
+.features{
+    padding:100px 0;
+    background:#fff;
+}
+
+.section-title{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 70px;
+}
+
+.section-title span{
+    display:inline-block;
+    background:#E8F0FF;
+    color:#2563EB;
+    padding:10px 24px;
+    border-radius:50px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.section-title h2{
+    font-size:48px;
+    color:#163A70;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.section-title p{
+    font-size:20px;
+    color:#64748B;
+    line-height:1.8;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.feature-card{
+    background:#fff;
+    border-radius:24px;
+    padding:35px;
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 60px rgba(37,99,235,.18);
+}
+
+.feature-icon{
+    width:70px;
+    height:70px;
+    background:#E8F0FF;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.feature-card h3{
+    font-size:24px;
+    margin-bottom:15px;
+    color:#163A70;
+}
+
+.feature-card p{
+    color:#64748B;
+    line-height:1.8;
+}
+@media(max-width:992px){
+
+.feature-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.feature-grid{
+    grid-template-columns:1fr;
+}
+
+.section-title h2{
+    font-size:36px;
+}
+
+}
+/* ==========================
+TRUST BANNER
+========================== */
+
+.trust-banner{
+    padding:60px 0;
+    background:#163A70;
+}
+
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.trust-item{
+    text-align:center;
+    color:#fff;
+}
+
+.trust-item h2{
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.trust-item p{
+    font-size:16px;
+    color:#CBD5E1;
+}
+
+@media(max-width:768px){
+
+.trust-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
 }
