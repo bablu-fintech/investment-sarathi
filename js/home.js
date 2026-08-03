@@ -44,3 +44,32 @@ if (ctx) {
     });
 
 }
+
+// ===============================
+// Interactive Feature Showcase
+// ===============================
+
+const tabs = document.querySelectorAll(".showcase-item");
+const previews = document.querySelectorAll(".preview");
+
+tabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        // Active menu remove
+        tabs.forEach(item => item.classList.remove("active"));
+
+        // Active preview remove
+        previews.forEach(preview => preview.classList.remove("active"));
+
+        // Active menu add
+        tab.classList.add("active");
+
+        // Show preview
+        const target = tab.dataset.tab;
+
+        document.getElementById(target).classList.add("active");
+
+    });
+
+});

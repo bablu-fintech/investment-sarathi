@@ -636,3 +636,93 @@ progress{
     height:18px;
     margin-top:20px;
 }
+****
+.preview{
+    display:none;
+    animation:fadeIn .4s ease;
+}
+
+.preview.active{
+    display:block;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+/* ===================================
+   FEATURE SHOWCASE
+=================================== */
+
+.feature-showcase{
+    ...
+}
+
+.showcase-grid{
+    ...
+}
+
+.showcase-item{
+    ...
+}
+
+.preview{
+    ...
+}
+
+/* এখানেই নিচে যোগ করুন */
+
+/* ===================================
+   GOAL PLANNER
+=================================== */
+
+.goal-card{
+    margin:30px 0;
+    display:grid;
+    gap:18px;
+}
+
+.goal-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 18px;
+    background:#F8FBFF;
+    border-radius:12px;
+}
+
+.progress-wrap{
+    margin-top:30px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.progress-bar{
+    width:100%;
+    height:14px;
+    background:#E5E7EB;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:18%;
+    height:100%;
+    background:linear-gradient(90deg,#2563EB,#10B981);
+    border-radius:30px;
+    transition:1s;
+}
