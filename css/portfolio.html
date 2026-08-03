@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio | Investment Sarathi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/portfolio.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ==========================
+SIDEBAR
+========================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<img src="assets/logo/logo.jpg" alt="Logo">
+
+<div>
+
+<h2>Investment Sarathi</h2>
+
+<p>AI Wealth Platform</p>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="portfolio.html">
+
+<i class="fa-solid fa-wallet"></i>
+
+Portfolio
+
+</a>
+
+</li>
+
+<li>
+
+<a href="sip.html">
+
+<i class="fa-solid fa-piggy-bank"></i>
+
+SIP Planner
+
+</a>
+
+</li>
+
+<li>
+
+<a href="financial-health.html">
+
+<i class="fa-solid fa-heart-circle-check"></i>
+
+Financial Health
+
+</a>
+
+</li>
+
+<li>
+
+<a href="ai-advisor.html">
+
+<i class="fa-solid fa-robot"></i>
+
+AI Advisor
+
+</a>
+
+</li>
+
+<li>
+
+<a href="reports.html">
+
+<i class="fa-solid fa-file-lines"></i>
+
+Reports
+
+</a>
+
+</li>
+
+<li>
+
+<a href="settings.html">
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+</aside>
+
+<!-- ==========================
+MAIN
+========================== -->
+
+<main class="main-content">
+
+<header class="topbar">
+
+<h1>Portfolio Overview</h1>
+
+<div class="top-actions">
+
+<button class="primary-btn">
+
+<i class="fa-solid fa-plus"></i>
+
+Add Investment
+
+</button>
+
+</div>
+
+</header>
+
+<!-- ==========================
+SUMMARY
+========================== -->
+
+<section class="portfolio-summary">
+
+<div class="summary-card">
+
+<h5>Total Investment</h5>
+
+<h2>₹18,50,000</h2>
+
+<p>Invested Amount</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Current Value</h5>
+
+<h2>₹22,85,450</h2>
+
+<p class="green">+23.54%</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Total Profit</h5>
+
+<h2>₹4,35,450</h2>
+
+<p class="green">Overall Gain</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>XIRR</h5>
+
+<h2>18.76%</h2>
+
+<p>Annual Return</p>
+
+</div>
+
+</section>
+<!-- ==========================================
+PORTFOLIO ANALYTICS
+========================================== -->
+
+<section class="analytics-grid">
+
+    <!-- Portfolio Growth -->
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h3>Portfolio Growth</h3>
+
+            <button class="view-btn">
+
+                View Details
+
+            </button>
+
+        </div>
+
+        <canvas id="portfolioGrowthChart"></canvas>
+
+    </div>
+
+    <!-- Asset Allocation -->
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h3>Asset Allocation</h3>
+
+        </div>
+
+        <canvas id="assetAllocationChart"></canvas>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+PERFORMANCE GRID
+========================================== -->
+
+<section class="performance-grid">
+
+    <!-- Investment Performance -->
+
+    <div class="performance-card">
+
+        <div class="card-header">
+
+            <h3>Investment Performance</h3>
+
+        </div>
+
+        <div class="performance-list">
+
+            <div class="performance-item">
+
+                <span>Mutual Funds</span>
+
+                <strong class="green">+18.42%</strong>
+
+            </div>
+
+            <div class="performance-item">
+
+                <span>Stocks</span>
+
+                <strong class="green">+24.16%</strong>
+
+            </div>
+
+            <div class="performance-item">
+
+                <span>Gold</span>
+
+                <strong class="green">+12.75%</strong>
+
+            </div>
+
+            <div class="performance-item">
+
+                <span>Insurance</span>
+
+                <strong>Protection</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Portfolio Health -->
+
+    <div class="health-card">
+
+        <div class="card-header">
+
+            <h3>Portfolio Health</h3>
+
+        </div>
+
+        <div class="health-score">
+
+            <h1>92</h1>
+
+            <p>Excellent</p>
+
+        </div>
+
+        <div class="health-bars">
+
+            <div class="health-item">
+
+                <span>Diversification</span>
+
+                <div class="progress">
+
+                    <div style="width:90%"></div>
+
+                </div>
+
+            </div>
+
+            <div class="health-item">
+
+                <span>Risk Balance</span>
+
+                <div class="progress">
+
+                    <div style="width:82%"></div>
+
+                </div>
+
+            </div>
+
+            <div class="health-item">
+
+                <span>Return Quality</span>
+
+                <div class="progress">
+
+                    <div style="width:88%"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+MONTHLY INVESTMENT
+========================================== -->
+
+<section class="monthly-card">
+
+    <div class="card-header">
+
+        <h3>Monthly Investment Trend</h3>
+
+    </div>
+
+    <canvas id="monthlyInvestmentChart"></canvas>
+
+</section>
+<!-- ==========================================
+PORTFOLIO HOLDINGS
+========================================== -->
+
+<section class="holdings-card">
+
+    <div class="card-header">
+
+        <h3>Portfolio Holdings</h3>
+
+        <div class="table-actions">
+
+            <input
+                type="text"
+                placeholder="Search Investment..."
+                class="table-search">
+
+            <select class="table-filter">
+
+                <option>All Assets</option>
+
+                <option>Mutual Funds</option>
+
+                <option>Stocks</option>
+
+                <option>Gold</option>
+
+                <option>Insurance</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <table class="holdings-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Asset</th>
+                <th>Category</th>
+                <th>Invested</th>
+                <th>Current</th>
+                <th>Gain / Loss</th>
+                <th>XIRR</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>HDFC Flexi Cap Fund</td>
+
+                <td>Mutual Fund</td>
+
+                <td>₹2,50,000</td>
+
+                <td>₹3,18,400</td>
+
+                <td class="green">+₹68,400</td>
+
+                <td>18.42%</td>
+
+                <td>
+
+                    <button class="edit-btn">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                    </button>
+
+                    <button class="delete-btn">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>ICICI Bluechip Fund</td>
+
+                <td>Mutual Fund</td>
+
+                <td>₹1,80,000</td>
+
+                <td>₹2,21,850</td>
+
+                <td class="green">+₹41,850</td>
+
+                <td>15.92%</td>
+
+                <td>
+
+                    <button class="edit-btn">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                    </button>
+
+                    <button class="delete-btn">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Reliance Industries</td>
+
+                <td>Stock</td>
+
+                <td>₹3,00,000</td>
+
+                <td>₹3,78,250</td>
+
+                <td class="green">+₹78,250</td>
+
+                <td>24.10%</td>
+
+                <td>
+
+                    <button class="edit-btn">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                    </button>
+
+                    <button class="delete-btn">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Digital Gold</td>
+
+                <td>Gold</td>
+
+                <td>₹75,000</td>
+
+                <td>₹83,600</td>
+
+                <td class="green">+₹8,600</td>
+
+                <td>12.80%</td>
+
+                <td>
+
+                    <button class="edit-btn">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                    </button>
+
+                    <button class="delete-btn">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Term Insurance</td>
+
+                <td>Insurance</td>
+
+                <td>₹15,000</td>
+
+                <td>Coverage</td>
+
+                <td>Protected</td>
+
+                <td>--</td>
+
+                <td>
+
+                    <button class="edit-btn">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                    </button>
+
+                    <button class="delete-btn">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ==========================================
+RECENT TRANSACTIONS
+========================================== -->
+
+<section class="transaction-card">
+
+    <div class="card-header">
+
+        <h3>Recent Transactions</h3>
+
+    </div>
+
+    <table class="transaction-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Date</th>
+
+                <th>Investment</th>
+
+                <th>Type</th>
+
+                <th>Amount</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>02 Aug 2026</td>
+
+                <td>HDFC Flexi Cap</td>
+
+                <td>SIP</td>
+
+                <td>₹5,000</td>
+
+            </tr>
+
+            <tr>
+
+                <td>28 Jul 2026</td>
+
+                <td>Reliance Industries</td>
+
+                <td>Buy</td>
+
+                <td>₹50,000</td>
+
+            </tr>
+
+            <tr>
+
+                <td>20 Jul 2026</td>
+
+                <td>Digital Gold</td>
+
+                <td>Purchase</td>
+
+                <td>₹10,000</td>
+
+            </tr>
+
+            <tr>
+
+                <td>15 Jul 2026</td>
+
+                <td>ICICI Bluechip</td>
+
+                <td>SIP</td>
+
+                <td>₹3,000</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+<!-- ==========================================
+AI PORTFOLIO INSIGHTS
+========================================== -->
+
+<section class="insights-grid">
+
+    <!-- AI Recommendation -->
+
+    <div class="insight-card">
+
+        <div class="card-header">
+
+            <h3>
+                🤖 AI Portfolio Insights
+            </h3>
+
+        </div>
+
+        <div class="insight-list">
+
+            <div class="insight-item">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <div>
+
+                    <strong>Portfolio Score</strong>
+
+                    <p>92 / 100 (Excellent)</p>
+
+                </div>
+
+            </div>
+
+            <div class="insight-item">
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+                <div>
+
+                    <strong>Risk Level</strong>
+
+                    <p>Moderate Risk Profile</p>
+
+                </div>
+
+            </div>
+
+            <div class="insight-item">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <div>
+
+                    <strong>Diversification</strong>
+
+                    <p>Good Allocation Across Assets</p>
+
+                </div>
+
+            </div>
+
+            <div class="insight-item">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <div>
+
+                    <strong>AI Suggestion</strong>
+
+                    <p>Increase Flexi Cap SIP by ₹2,000/month.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Goal Alignment -->
+
+    <div class="goal-align-card">
+
+        <div class="card-header">
+
+            <h3>
+                🎯 Goal Alignment
+            </h3>
+
+        </div>
+
+        <div class="goal-progress">
+
+            <div class="goal-row">
+
+                <span>Dream Home</span>
+
+                <span>68%</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div style="width:68%"></div>
+
+            </div>
+
+            <div class="goal-row">
+
+                <span>Retirement</span>
+
+                <span>54%</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div style="width:54%"></div>
+
+            </div>
+
+            <div class="goal-row">
+
+                <span>Child Education</span>
+
+                <span>77%</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div style="width:77%"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+EXPORT SECTION
+========================================== -->
+
+<section class="export-section">
+
+    <button class="primary-btn">
+
+        <i class="fa-solid fa-file-pdf"></i>
+
+        Download PDF
+
+    </button>
+
+    <button class="primary-btn secondary">
+
+        <i class="fa-solid fa-file-excel"></i>
+
+        Export Excel
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+
+<footer class="portfolio-footer">
+
+    <p>
+
+        © 2026 Investment Sarathi.
+
+        AI Powered Wealth Management Platform.
+
+    </p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/portfolio.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Investment Sarathi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<link rel="stylesheet"
+href="css/dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ==========================================
+SIDEBAR
+=========================================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<img src="assets/logo/logo.jpg" alt="Investment Sarathi">
+
+<div>
+
+<h2>Investment Sarathi</h2>
+
+<p>AI Powered Wealth Platform</p>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li class="active">
+<i class="fa-solid fa-house"></i>
+<span>Dashboard</span>
+</li>
+
+<li>
+<i class="fa-solid fa-wallet"></i>
+<span>Portfolio</span>
+</li>
+
+<li>
+<i class="fa-solid fa-chart-line"></i>
+<span>Mutual Funds</span>
+</li>
+
+<li>
+<i class="fa-solid fa-arrow-trend-up"></i>
+<span>Stocks</span>
+</li>
+
+<li>
+<i class="fa-solid fa-piggy-bank"></i>
+<span>SIP Planner</span>
+</li>
+
+<li>
+<i class="fa-solid fa-bullseye"></i>
+<span>Goal Planner</span>
+</li>
+
+<li>
+<i class="fa-solid fa-heart-circle-check"></i>
+<span>Financial Health</span>
+</li>
+
+<li>
+<i class="fa-solid fa-robot"></i>
+<span>AI Advisor</span>
+</li>
+
+<li>
+<i class="fa-solid fa-file-lines"></i>
+<span>Reports</span>
+</li>
+
+<li>
+<i class="fa-solid fa-gear"></i>
+<span>Settings</span>
+</li>
+
+<li>
+<i class="fa-solid fa-right-from-bracket"></i>
+<span>Logout</span>
+</li>
+
+</ul>
+
+</nav>
+
+</aside>
+
+<!-- ==========================================
+MAIN CONTENT
+=========================================== -->
+
+<main class="main-content">
+
+<!-- ==========================================
+TOP BAR
+=========================================== -->
+
+<header class="topbar">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+placeholder="Search Investment, SIP, Goal...">
+
+</div>
+
+<div class="top-right">
+
+<button class="icon-btn">
+
+<i class="fa-regular fa-bell"></i>
+
+<span class="notification">3</span>
+
+</button>
+
+<button class="icon-btn">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<div class="profile">
+
+<img src="assets/images/avatar.png" alt="User">
+
+<div>
+
+<h4>Bablu Sen</h4>
+
+<p>Premium Member</p>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ==========================================
+WELCOME
+=========================================== -->
+
+<section class="welcome">
+
+<div>
+
+<h1>
+Welcome Back,
+Bablu 👋
+</h1>
+
+<p>
+
+Here's your financial overview for today.
+
+</p>
+
+</div>
+
+<button class="primary-btn">
+
+<i class="fa-solid fa-plus"></i>
+
+Add Investment
+
+</button>
+
+</section>
+
+<!-- ==========================================
+SUMMARY CARDS
+=========================================== -->
+
+<section class="summary-grid">
+
+<div class="summary-card">
+
+<div class="card-icon blue">
+
+<i class="fa-solid fa-wallet"></i>
+
+</div>
+
+<div>
+
+<h5>Total Portfolio</h5>
+
+<h2>₹12,45,650</h2>
+
+<p class="green">
+
++14.8%
+
+</p>
+
+</div>
+
+</div>
+
+<div class="summary-card">
+
+<div class="card-icon green">
+
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+</div>
+
+<div>
+
+<h5>Today's Gain</h5>
+
+<h2>₹2,350</h2>
+
+<p class="green">
+
++0.86%
+
+</p>
+
+</div>
+
+</div>
+
+<div class="summary-card">
+
+<div class="card-icon orange">
+
+<i class="fa-solid fa-heart"></i>
+
+</div>
+
+<div>
+
+<h5>Financial Health</h5>
+
+<h2>87 / 100</h2>
+
+<p class="green">
+
+Excellent
+
+</p>
+
+</div>
+
+</div>
+
+<div class="summary-card">
+
+<div class="card-icon purple">
+
+<i class="fa-solid fa-piggy-bank"></i>
+
+</div>
+
+<div>
+
+<h5>Active SIP</h5>
+
+<h2>8</h2>
+
+<p>
+
+₹15,000 / Month
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+ANALYTICS SECTION
+=========================================== -->
+
+<section class="analytics-grid">
+
+    <!-- Portfolio Growth -->
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h3>Portfolio Growth</h3>
+
+            <button class="view-btn">View Report</button>
+
+        </div>
+
+        <canvas id="portfolioChart"></canvas>
+
+    </div>
+
+    <!-- Asset Allocation -->
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h3>Asset Allocation</h3>
+
+        </div>
+
+        <canvas id="allocationChart"></canvas>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+GOALS + AI
+=========================================== -->
+
+<section class="middle-grid">
+
+    <!-- Goal Progress -->
+
+    <div class="goal-card">
+
+        <div class="card-header">
+
+            <h3>Goal Progress</h3>
+
+        </div>
+
+        <div class="goal-item">
+
+            <div>
+
+                <strong>🏠 Dream Home</strong>
+
+                <p>Target ₹50,00,000</p>
+
+            </div>
+
+            <span>42%</span>
+
+        </div>
+
+        <div class="progress">
+
+            <div style="width:42%"></div>
+
+        </div>
+
+        <div class="goal-item">
+
+            <div>
+
+                <strong>🎓 Child Education</strong>
+
+                <p>Target ₹25,00,000</p>
+
+            </div>
+
+            <span>58%</span>
+
+        </div>
+
+        <div class="progress">
+
+            <div style="width:58%"></div>
+
+        </div>
+
+        <div class="goal-item">
+
+            <div>
+
+                <strong>🌴 Retirement</strong>
+
+                <p>Target ₹3 Crore</p>
+
+            </div>
+
+            <span>24%</span>
+
+        </div>
+
+        <div class="progress">
+
+            <div style="width:24%"></div>
+
+        </div>
+
+    </div>
+
+    <!-- AI Coach -->
+
+    <div class="ai-card">
+
+        <div class="card-header">
+
+            <h3>🤖 AI Financial Coach</h3>
+
+        </div>
+
+        <div class="ai-box">
+
+            <h4>Today's Recommendation</h4>
+
+            <p>
+
+Increase your Monthly SIP by
+<strong>₹2,000</strong>
+
+to achieve your Retirement Goal
+3 years earlier.
+
+            </p>
+
+            <button class="primary-btn">
+
+View Recommendation
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+BOTTOM GRID
+=========================================== -->
+
+<section class="bottom-grid">
+
+    <!-- Recent Transactions -->
+
+    <div class="transaction-card">
+
+        <div class="card-header">
+
+            <h3>Recent Transactions</h3>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Fund</th>
+
+                    <th>Date</th>
+
+                    <th>Amount</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>HDFC Flexi Cap</td>
+
+                    <td>02 Aug</td>
+
+                    <td>₹5,000</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>SBI Small Cap</td>
+
+                    <td>01 Aug</td>
+
+                    <td>₹2,000</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>ICICI Bluechip</td>
+
+                    <td>30 Jul</td>
+
+                    <td>₹3,000</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Nippon India</td>
+
+                    <td>28 Jul</td>
+
+                    <td>₹2,500</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Upcoming SIP -->
+
+    <div class="sip-card">
+
+        <div class="card-header">
+
+            <h3>Upcoming SIP</h3>
+
+        </div>
+
+        <ul>
+
+            <li>
+
+                <strong>05 Aug</strong>
+
+                <span>₹5,000</span>
+
+            </li>
+
+            <li>
+
+                <strong>10 Aug</strong>
+
+                <span>₹3,000</span>
+
+            </li>
+
+            <li>
+
+                <strong>15 Aug</strong>
+
+                <span>₹7,000</span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+MARKET INSIGHTS
+=========================================== -->
+
+<section class="market-card">
+
+    <div class="card-header">
+
+        <h3>📢 AI Market Insights</h3>
+
+    </div>
+
+    <div class="market-grid">
+
+        <div class="market-box">
+
+            <h4>NIFTY 50</h4>
+
+            <h2 class="green">+0.82%</h2>
+
+        </div>
+
+        <div class="market-box">
+
+            <h4>SENSEX</h4>
+
+            <h2 class="green">+0.61%</h2>
+
+        </div>
+
+        <div class="market-box">
+
+            <h4>Gold</h4>
+
+            <h2>₹98,250</h2>
+
+        </div>
+
+        <div class="market-box">
+
+            <h4>USD / INR</h4>
+
+            <h2>₹87.35</h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

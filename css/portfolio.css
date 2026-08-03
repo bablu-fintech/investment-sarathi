@@ -1,0 +1,1165 @@
+/*==========================================
+GOOGLE FONT
+==========================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*==========================================
+ROOT
+==========================================*/
+
+:root{
+
+    --primary:#2563EB;
+    --primary-dark:#1D4ED8;
+
+    --success:#10B981;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --bg:#F5F8FD;
+    --card:#FFFFFF;
+
+    --text:#163A70;
+    --text-light:#64748B;
+
+    --border:#E5E7EB;
+
+    --radius:20px;
+
+    --shadow:0 18px 45px rgba(15,23,42,.08);
+
+}
+
+/*==========================================
+RESET
+==========================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+/*==========================================
+LAYOUT
+==========================================*/
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    min-height:100vh;
+
+}
+
+/*==========================================
+SIDEBAR
+==========================================*/
+
+.sidebar{
+
+    background:#fff;
+
+    border-right:1px solid var(--border);
+
+    padding:30px;
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:45px;
+
+}
+
+.logo img{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:14px;
+
+}
+
+.logo h2{
+
+    font-size:22px;
+
+}
+
+.logo p{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+/*==========================================
+MENU
+==========================================*/
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebar a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.sidebar a:hover{
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+}
+
+.sidebar .active a{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:#fff;
+
+}
+
+/*==========================================
+MAIN CONTENT
+==========================================*/
+
+.main-content{
+
+    padding:35px;
+
+}
+
+/*==========================================
+TOPBAR
+==========================================*/
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.topbar h1{
+
+    font-size:40px;
+
+    font-weight:700;
+
+}
+
+.primary-btn{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:15px 28px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.25);
+
+}
+
+/*==========================================
+SUMMARY
+==========================================*/
+
+.portfolio-summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:24px;
+
+    margin-bottom:35px;
+
+}
+
+.summary-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.summary-card h5{
+
+    color:var(--text-light);
+
+    margin-bottom:12px;
+
+}
+
+.summary-card h2{
+
+    font-size:32px;
+
+    margin-bottom:8px;
+
+}
+
+.summary-card p{
+
+    color:var(--success);
+
+    font-weight:600;
+
+}
+/*==========================================
+ANALYTICS GRID
+==========================================*/
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+.chart-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.chart-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.chart-card canvas{
+
+    width:100% !important;
+
+    height:330px !important;
+
+}
+
+/*==========================================
+CARD HEADER
+==========================================*/
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.card-header h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.view-btn{
+
+    border:none;
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.view-btn:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/*==========================================
+PERFORMANCE GRID
+==========================================*/
+
+.performance-grid{
+
+    display:grid;
+
+    grid-template-columns:1.4fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+/*==========================================
+PERFORMANCE CARD
+==========================================*/
+
+.performance-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.performance-list{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.performance-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.performance-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.performance-item span{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+.performance-item strong{
+
+    font-size:17px;
+
+}
+
+/*==========================================
+PORTFOLIO HEALTH
+==========================================*/
+
+.health-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.health-score{
+
+    text-align:center;
+
+    margin:25px 0;
+
+}
+
+.health-score h1{
+
+    font-size:64px;
+
+    color:var(--success);
+
+    margin-bottom:10px;
+
+}
+
+.health-score p{
+
+    font-size:18px;
+
+    color:var(--text-light);
+
+    font-weight:600;
+
+}
+
+.health-bars{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.health-item span{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:#E5E7EB;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.progress div{
+
+    height:100%;
+
+    border-radius:30px;
+
+    background:linear-gradient(90deg,#2563EB,#10B981);
+
+}
+
+/*==========================================
+MONTHLY INVESTMENT
+==========================================*/
+
+.monthly-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:35px;
+
+}
+
+.monthly-card canvas{
+
+    width:100% !important;
+
+    height:320px !important;
+
+}
+/*==========================================
+HOLDINGS CARD
+==========================================*/
+
+.holdings-card{
+
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    margin-bottom:35px;
+
+}
+
+/*==========================================
+TABLE ACTIONS
+==========================================*/
+
+.table-actions{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.table-search{
+
+    width:280px;
+    height:46px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:0 16px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.table-search:focus{
+
+    border-color:var(--primary);
+
+}
+
+.table-filter{
+
+    height:46px;
+
+    padding:0 16px;
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    outline:none;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+/*==========================================
+HOLDINGS TABLE
+==========================================*/
+
+.holdings-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:25px;
+
+}
+
+.holdings-table th{
+
+    text-align:left;
+
+    padding:18px;
+
+    background:#F8FAFC;
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.holdings-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #EEF2F7;
+
+    font-size:15px;
+
+}
+
+.holdings-table tr{
+
+    transition:.3s;
+
+}
+
+.holdings-table tbody tr:hover{
+
+    background:#F9FBFF;
+
+}
+
+/*==========================================
+GAIN COLORS
+==========================================*/
+
+.green{
+
+    color:#10B981;
+
+    font-weight:700;
+
+}
+
+.red{
+
+    color:#EF4444;
+
+    font-weight:700;
+
+}
+
+/*==========================================
+ACTION BUTTONS
+==========================================*/
+
+.edit-btn,
+.delete-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    margin-right:8px;
+
+    transition:.3s;
+
+}
+
+.edit-btn{
+
+    background:#EEF4FF;
+
+    color:#2563EB;
+
+}
+
+.edit-btn:hover{
+
+    background:#2563EB;
+
+    color:#fff;
+
+}
+
+.delete-btn{
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+}
+
+.delete-btn:hover{
+
+    background:#DC2626;
+
+    color:#fff;
+
+}
+
+/*==========================================
+TRANSACTION CARD
+==========================================*/
+
+.transaction-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:35px;
+
+}
+
+.transaction-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+}
+
+.transaction-table th{
+
+    text-align:left;
+
+    padding:16px;
+
+    background:#F8FAFC;
+
+    font-size:14px;
+
+}
+
+.transaction-table td{
+
+    padding:16px;
+
+    border-bottom:1px solid #EEF2F7;
+
+}
+
+.transaction-table tbody tr:hover{
+
+    background:#F9FBFF;
+
+}
+/*==========================================
+AI INSIGHTS
+==========================================*/
+
+.insights-grid{
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.insight-card,
+.goal-align-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/*==========================================
+AI LIST
+==========================================*/
+
+.insight-list{
+
+    display:grid;
+
+    gap:22px;
+
+}
+
+.insight-item{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+}
+
+.insight-item i{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+    font-size:20px;
+
+}
+
+.insight-item strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    font-size:17px;
+
+}
+
+.insight-item p{
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+/*==========================================
+GOAL ALIGNMENT
+==========================================*/
+
+.goal-progress{
+
+    display:grid;
+
+    gap:22px;
+
+}
+
+.goal-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+/*==========================================
+EXPORT
+==========================================*/
+
+.export-section{
+
+    display:flex;
+
+    gap:20px;
+
+    justify-content:flex-end;
+
+    margin-bottom:40px;
+
+}
+
+.secondary{
+
+    background:#fff;
+
+    color:var(--primary);
+
+    border:2px solid var(--primary);
+
+}
+
+.secondary:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/*==========================================
+FOOTER
+==========================================*/
+
+.portfolio-footer{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    padding:25px 0;
+
+    border-top:1px solid var(--border);
+
+}
+
+/*==========================================
+SMOOTH ANIMATION
+==========================================*/
+
+.summary-card,
+.chart-card,
+.performance-card,
+.health-card,
+.holdings-card,
+.transaction-card,
+.insight-card,
+.goal-align-card{
+
+    transition:.35s;
+
+}
+
+.summary-card:hover,
+.chart-card:hover,
+.performance-card:hover,
+.health-card:hover,
+.holdings-card:hover,
+.transaction-card:hover,
+.insight-card:hover,
+.goal-align-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 25px 55px rgba(0,0,0,.12);
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media(max-width:1200px){
+
+.analytics-grid,
+.performance-grid,
+.insights-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.portfolio-summary{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:992px){
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+.sidebar{
+
+position:relative;
+
+height:auto;
+
+}
+
+.portfolio-summary{
+
+grid-template-columns:1fr;
+
+}
+
+.table-actions{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+.table-search{
+
+width:100%;
+
+}
+
+.export-section{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.main-content{
+
+padding:20px;
+
+}
+
+.topbar{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+.topbar h1{
+
+font-size:30px;
+
+}
+
+.holdings-table,
+.transaction-table{
+
+display:block;
+
+overflow-x:auto;
+
+white-space:nowrap;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.card-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+.primary-btn{
+
+width:100%;
+
+}
+
+.export-section{
+
+flex-direction:column;
+
+}
+
+}
