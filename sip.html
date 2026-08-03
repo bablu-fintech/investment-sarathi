@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIP Planner | Investment Sarathi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/sip.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ==========================================
+SIDEBAR
+========================================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<img src="assets/logo/logo.jpg" alt="Investment Sarathi">
+
+<div>
+
+<h2>Investment Sarathi</h2>
+
+<p>AI Powered Wealth Platform</p>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>
+<a href="dashboard.html">
+<i class="fa-solid fa-house"></i>
+<span>Dashboard</span>
+</a>
+</li>
+
+<li>
+<a href="portfolio.html">
+<i class="fa-solid fa-wallet"></i>
+<span>Portfolio</span>
+</a>
+</li>
+
+<li class="active">
+<a href="sip.html">
+<i class="fa-solid fa-piggy-bank"></i>
+<span>SIP Planner</span>
+</a>
+</li>
+
+<li>
+<a href="financial-health.html">
+<i class="fa-solid fa-heart-circle-check"></i>
+<span>Financial Health</span>
+</a>
+</li>
+
+<li>
+<a href="ai-advisor.html">
+<i class="fa-solid fa-robot"></i>
+<span>AI Advisor</span>
+</a>
+</li>
+
+<li>
+<a href="reports.html">
+<i class="fa-solid fa-file-lines"></i>
+<span>Reports</span>
+</a>
+</li>
+
+<li>
+<a href="settings.html">
+<i class="fa-solid fa-gear"></i>
+<span>Settings</span>
+</a>
+</li>
+
+<li>
+<a href="login.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+<span>Logout</span>
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</aside>
+
+<!-- ==========================================
+MAIN CONTENT
+========================================== -->
+
+<main class="main-content">
+
+<header class="topbar">
+
+<h1>SIP Planner</h1>
+
+<button class="primary-btn">
+
+<i class="fa-solid fa-plus"></i>
+
+Start New SIP
+
+</button>
+
+</header>
+
+<!-- ==========================================
+SUMMARY
+========================================== -->
+
+<section class="sip-summary">
+
+<div class="summary-card">
+
+<h5>Total Active SIP</h5>
+
+<h2>8</h2>
+
+<p>Running SIPs</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Monthly Investment</h5>
+
+<h2>₹15,000</h2>
+
+<p>Current SIP Amount</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Future Value</h5>
+
+<h2>₹52,80,450</h2>
+
+<p class="green">20 Years Projection</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Expected Return</h5>
+
+<h2>12%</h2>
+
+<p>Annual Growth</p>
+
+</div>
+
+</section>
+<!-- ==========================================
+SIP CALCULATOR
+========================================== -->
+
+<section class="calculator-grid">
+
+    <!-- Calculator -->
+
+    <div class="calculator-card">
+
+        <div class="card-header">
+
+            <h3>💰 SIP Calculator</h3>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Monthly SIP (₹)</label>
+
+            <input
+                type="number"
+                id="sipAmount"
+                value="10000">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Investment Period (Years)</label>
+
+            <input
+                type="range"
+                id="sipYears"
+                min="1"
+                max="40"
+                value="20">
+
+            <span id="yearValue">20 Years</span>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Expected Return (%)</label>
+
+            <input
+                type="range"
+                id="sipReturn"
+                min="1"
+                max="20"
+                value="12">
+
+            <span id="returnValue">12%</span>
+
+        </div>
+
+        <button
+            class="primary-btn"
+            id="calculateBtn">
+
+            Calculate SIP
+
+        </button>
+
+    </div>
+
+    <!-- Result -->
+
+    <div class="result-card">
+
+        <div class="card-header">
+
+            <h3>📊 SIP Projection</h3>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Total Investment</span>
+
+            <strong id="totalInvestment">
+
+                ₹24,00,000
+
+            </strong>
+
+        </div>
+
+        <div class="result-item">
+
+            <span>Estimated Returns</span>
+
+            <strong
+                class="green"
+                id="estimatedReturn">
+
+                ₹75,91,479
+
+            </strong>
+
+        </div>
+
+        <div class="result-item total">
+
+            <span>Maturity Value</span>
+
+            <strong id="maturityValue">
+
+                ₹99,91,479
+
+            </strong>
+
+        </div>
+
+        <canvas
+            id="sipProjectionChart">
+
+        </canvas>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+GOAL PROJECTION
+========================================== -->
+
+<section class="goal-projection">
+
+    <div class="card-header">
+
+        <h3>🎯 Goal Projection</h3>
+
+    </div>
+
+    <div class="goal-grid">
+
+        <div class="goal-box">
+
+            <h4>🏠 Dream Home</h4>
+
+            <h2>₹1 Cr</h2>
+
+            <p>Expected in 18 Years</p>
+
+        </div>
+
+        <div class="goal-box">
+
+            <h4>🎓 Child Education</h4>
+
+            <h2>₹50 Lakh</h2>
+
+            <p>Expected in 14 Years</p>
+
+        </div>
+
+        <div class="goal-box">
+
+            <h4>🌴 Retirement</h4>
+
+            <h2>₹5 Cr</h2>
+
+            <p>Expected in 25 Years</p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+ACTIVE SIP
+========================================== -->
+
+<section class="sip-table-card">
+
+    <div class="card-header">
+
+        <h3>📋 Active SIPs</h3>
+
+        <input
+            type="text"
+            class="table-search"
+            placeholder="Search SIP...">
+
+    </div>
+
+    <table class="sip-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Scheme</th>
+                <th>AMC</th>
+                <th>Monthly SIP</th>
+                <th>Next Date</th>
+                <th>Status</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>HDFC Flexi Cap Fund</td>
+                <td>HDFC AMC</td>
+                <td>₹5,000</td>
+                <td>05 Aug 2026</td>
+                <td><span class="status active">Active</span></td>
+
+                <td>
+
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+
+                    <button class="delete-btn">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>ICICI Bluechip Fund</td>
+                <td>ICICI AMC</td>
+                <td>₹3,000</td>
+                <td>10 Aug 2026</td>
+                <td><span class="status active">Active</span></td>
+
+                <td>
+
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+
+                    <button class="delete-btn">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>SBI Small Cap</td>
+                <td>SBI AMC</td>
+                <td>₹2,000</td>
+                <td>15 Aug 2026</td>
+                <td><span class="status paused">Paused</span></td>
+
+                <td>
+
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+
+                    <button class="delete-btn">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ==========================================
+UPCOMING SIP
+========================================== -->
+
+<section class="upcoming-grid">
+
+    <div class="upcoming-card">
+
+        <div class="card-header">
+
+            <h3>📅 Upcoming SIP</h3>
+
+        </div>
+
+        <ul>
+
+            <li>
+
+                <strong>05 Aug</strong>
+
+                <span>₹5,000</span>
+
+            </li>
+
+            <li>
+
+                <strong>10 Aug</strong>
+
+                <span>₹3,000</span>
+
+            </li>
+
+            <li>
+
+                <strong>15 Aug</strong>
+
+                <span>₹2,000</span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="history-card">
+
+        <div class="card-header">
+
+            <h3>📈 SIP History</h3>
+
+        </div>
+
+        <ul>
+
+            <li>✔ July SIP Completed</li>
+
+            <li>✔ June SIP Completed</li>
+
+            <li>✔ May SIP Completed</li>
+
+            <li>✔ April SIP Completed</li>
+
+        </ul>
+
+    </div>
+
+</section>
+<!-- ==========================================
+AI SIP INSIGHTS
+========================================== -->
+
+<section class="ai-grid">
+
+    <!-- AI Recommendation -->
+
+    <div class="ai-card">
+
+        <div class="card-header">
+
+            <h3>🤖 AI SIP Recommendation</h3>
+
+        </div>
+
+        <div class="ai-list">
+
+            <div class="ai-item">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <div>
+
+                    <strong>Increase SIP</strong>
+
+                    <p>Increase your monthly SIP by ₹2,000 to achieve your retirement goal 3 years earlier.</p>
+
+                </div>
+
+            </div>
+
+            <div class="ai-item">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <div>
+
+                    <strong>Expected CAGR</strong>
+
+                    <p>Your portfolio is projected to grow at approximately 12% annually.</p>
+
+                </div>
+
+            </div>
+
+            <div class="ai-item">
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+                <div>
+
+                    <strong>Risk Level</strong>
+
+                    <p>Moderate Risk. Current asset allocation is healthy.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SIP Health -->
+
+    <div class="health-card">
+
+        <div class="card-header">
+
+            <h3>❤️ SIP Health Score</h3>
+
+        </div>
+
+        <div class="health-score">
+
+            <h1>94</h1>
+
+            <p>Excellent</p>
+
+        </div>
+
+        <div class="progress">
+
+            <div style="width:94%"></div>
+
+        </div>
+
+        <p class="health-text">
+
+            Your SIP discipline is excellent. Continue investing regularly.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+EXPORT
+========================================== -->
+
+<section class="export-section">
+
+    <button class="primary-btn">
+
+        <i class="fa-solid fa-file-pdf"></i>
+
+        Download PDF
+
+    </button>
+
+    <button class="primary-btn secondary">
+
+        <i class="fa-solid fa-file-excel"></i>
+
+        Export Excel
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+
+<footer class="sip-footer">
+
+    <p>
+
+        © 2026 Investment Sarathi |
+        AI Powered SIP Planning Platform
+
+    </p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/sip.js"></script>
+
+</body>
+</html>

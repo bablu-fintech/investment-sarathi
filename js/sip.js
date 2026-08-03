@@ -618,3 +618,277 @@ $("calculateGoal").addEventListener(
 });
 
 calculateGoal();
+
+******************
+/*==================================================
+    Investment Sarathi SIP Planner
+==================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+console.log("SIP Planner Loaded");
+
+/*==================================================
+    ELEMENTS
+==================================================*/
+
+const sipAmount = document.getElementById("sipAmount");
+const sipYears = document.getElementById("sipYears");
+const sipReturn = document.getElementById("sipReturn");
+
+const yearValue = document.getElementById("yearValue");
+const returnValue = document.getElementById("returnValue");
+
+const totalInvestment = document.getElementById("totalInvestment");
+const estimatedReturn = document.getElementById("estimatedReturn");
+const maturityValue = document.getElementById("maturityValue");
+
+/*==================================================
+    RANGE VALUE
+==================================================*/
+
+if(sipYears){
+
+sipYears.addEventListener("input",()=>{
+
+yearValue.innerHTML=sipYears.value+" Years";
+
+calculateSIP();
+
+});
+
+}
+
+if(sipReturn){
+
+sipReturn.addEventListener("input",()=>{
+
+returnValue.innerHTML=sipReturn.value+"%";
+
+calculateSIP();
+
+});
+
+}
+
+if(sipAmount){
+
+sipAmount.addEventListener("keyup",calculateSIP);
+
+sipAmount.addEventListener("change",calculateSIP);
+
+}
+
+/*==================================================
+    SIP FORMULA
+==================================================*/
+
+function calculateSIP(){
+
+const monthly=parseFloat(sipAmount.value)||0;
+
+const years=parseInt(sipYears.value);
+
+const annual=parseFloat(sipReturn.value);
+
+const r=annual/12/100;
+
+const n=years*12;
+
+const future=monthly*((Math.pow(1+r,n)-1)/r)*(1+r);
+
+const invest=monthly*n;
+
+const gain=future-invest;
+
+totalInvestment.innerHTML="₹"+invest.toLocaleString("en-IN");
+
+estimatedReturn.innerHTML="₹"+Math.round(gain).toLocaleString("en-IN");
+
+maturityValue.innerHTML="₹"+Math.round(future).toLocaleString("en-IN");
+
+updateChart(invest,future);
+
+}
+
+/*==================================================
+    CHART
+==================================================*/
+
+let sipChart;
+
+function updateChart(invest,future){
+
+const ctx=document.getElementById("sipProjectionChart");
+
+if(!ctx) return;
+
+if(sipChart){
+
+sipChart.destroy();
+
+}
+
+sipChart=new Chart(ctx,{
+
+type:"doughnut",
+
+data:{
+
+labels:[
+
+"Investment",
+
+"Returns"
+
+],
+
+datasets:[{
+
+data:[
+
+invest,
+
+future-invest
+
+],
+
+backgroundColor:[
+
+"#2563EB",
+
+"#10B981"
+
+],
+
+borderWidth:0
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:false,
+
+cutout:"65%",
+
+plugins:{
+
+legend:{
+
+position:"bottom"
+
+}
+
+}
+
+}
+
+});
+
+}
+
+/*==================================================
+    SEARCH SIP
+==================================================*/
+
+const search=document.querySelector(".table-search");
+
+if(search){
+
+search.addEventListener("keyup",function(){
+
+const value=this.value.toLowerCase();
+
+document.querySelectorAll(".sip-table tbody tr").forEach(row=>{
+
+row.style.display=row.innerText.toLowerCase().includes(value)
+
+? ""
+
+: "none";
+
+});
+
+});
+
+}
+
+/*==================================================
+    EDIT BUTTON
+==================================================*/
+
+document.querySelectorAll(".edit-btn").forEach(btn=>{
+
+btn.onclick=()=>{
+
+alert("Edit SIP (Backend Coming Soon)");
+
+};
+
+});
+
+/*==================================================
+    DELETE BUTTON
+==================================================*/
+
+document.querySelectorAll(".delete-btn").forEach(btn=>{
+
+btn.onclick=()=>{
+
+if(confirm("Delete this SIP?")){
+
+alert("SIP Deleted (Demo)");
+
+}
+
+};
+
+});
+
+/*==================================================
+    EXPORT
+==================================================*/
+
+document.querySelectorAll(".export-section button").forEach(btn=>{
+
+btn.onclick=()=>{
+
+alert("Export Feature will be connected with Backend.");
+
+};
+
+});
+
+/*==================================================
+    AI CARD
+==================================================*/
+
+const ai=document.querySelector(".ai-card");
+
+if(ai){
+
+setInterval(()=>{
+
+ai.style.opacity=".88";
+
+setTimeout(()=>{
+
+ai.style.opacity="1";
+
+},500);
+
+},5000);
+
+}
+
+/*==================================================
+    INITIAL LOAD
+==================================================*/
+
+calculateSIP();
+
+});
