@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Investment Calculators | Investment Sarathi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="css/calculators.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!--==========================================
+SIDEBAR
+===========================================-->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<img src="assets/logo/logo.jpg" alt="Investment Sarathi">
+
+<div>
+
+<h2>Investment Sarathi</h2>
+
+<p>AI Powered Wealth Platform</p>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Dashboard</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="portfolio.html">
+
+<i class="fa-solid fa-wallet"></i>
+
+<span>Portfolio</span>
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="calculators.html">
+
+<i class="fa-solid fa-calculator"></i>
+
+<span>Investment Calculators</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="financial-health.html">
+
+<i class="fa-solid fa-heart-circle-check"></i>
+
+<span>Financial Health</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="ai-advisor.html">
+
+<i class="fa-solid fa-robot"></i>
+
+<span>AI Advisor</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="reports.html">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<span>Reports</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="settings.html">
+
+<i class="fa-solid fa-gear"></i>
+
+<span>Settings</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="login.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+<span>Logout</span>
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+</aside>
+
+<!--==========================================
+MAIN CONTENT
+===========================================-->
+
+<main class="main-content">
+
+<header class="topbar">
+
+<div>
+
+<h1>Investment Calculator Suite</h1>
+
+<p>
+
+Plan your investments using AI-powered financial calculators.
+
+</p>
+
+</div>
+
+<button class="primary-btn">
+
+<i class="fa-solid fa-download"></i>
+
+Export Report
+
+</button>
+
+</header>
+
+<!--==========================================
+SUMMARY
+===========================================-->
+
+<section class="calculator-summary">
+
+<div class="summary-card">
+
+<h5>Total Calculators</h5>
+
+<h2>10+</h2>
+
+<p>Financial Tools</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Saved Plans</h5>
+
+<h2>24</h2>
+
+<p>Investment Plans</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Monthly SIP</h5>
+
+<h2>₹15,000</h2>
+
+<p>Current Investment</p>
+
+</div>
+
+<div class="summary-card">
+
+<h5>Projected Wealth</h5>
+
+<h2>₹2.48 Cr</h2>
+
+<p class="green">AI Forecast</p>
+
+</div>
+
+</section>
+
+<!--==========================================
+CALCULATOR TABS
+===========================================-->
+
+<section class="calculator-tabs">
+
+<button class="tab-btn active" data-tab="sip">
+
+<i class="fa-solid fa-piggy-bank"></i>
+
+<span>SIP</span>
+
+</button>
+
+<button class="tab-btn" data-tab="lumpsum">
+
+<i class="fa-solid fa-sack-dollar"></i>
+
+<span>Lumpsum</span>
+
+</button>
+
+<button class="tab-btn" data-tab="swp">
+
+<i class="fa-solid fa-repeat"></i>
+
+<span>SWP</span>
+
+</button>
+
+<button class="tab-btn" data-tab="goal">
+
+<i class="fa-solid fa-bullseye"></i>
+
+<span>Goal</span>
+
+</button>
+
+<button class="tab-btn" data-tab="retirement">
+
+<i class="fa-solid fa-umbrella-beach"></i>
+
+<span>Retirement</span>
+
+</button>
+
+<button class="tab-btn" data-tab="fd">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<span>FD</span>
+
+</button>
+
+<button class="tab-btn" data-tab="rd">
+
+<i class="fa-solid fa-coins"></i>
+
+<span>RD</span>
+
+</button>
+
+<button class="tab-btn" data-tab="emi">
+
+<i class="fa-solid fa-credit-card"></i>
+
+<span>EMI</span>
+
+</button>
+
+<button class="tab-btn" data-tab="cagr">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<span>CAGR</span>
+
+</button>
+
+<button class="tab-btn" data-tab="inflation">
+
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+<span>Inflation</span>
+
+</button>
+
+</section>
+
+<!--==========================================
+CALCULATOR CONTENT START
+===========================================-->
+
+<div class="calculator-content">
+    <!--==========================================
+SIP CALCULATOR
+===========================================-->
+
+<section class="calculator-panel active" id="sip">
+
+<div class="calculator-grid">
+
+<!-- Left -->
+
+<div class="calculator-card">
+
+<div class="card-header">
+
+<h2>💰 SIP Calculator</h2>
+
+<p>
+
+Calculate future wealth from your monthly SIP.
+
+</p>
+
+</div>
+
+<div class="input-group">
+
+<label>Monthly Investment (₹)</label>
+
+<input
+type="number"
+id="sipAmount"
+value="10000"
+min="500">
+
+</div>
+
+<div class="input-group">
+
+<label>Expected Annual Return (%)</label>
+
+<input
+type="range"
+id="sipReturn"
+min="1"
+max="20"
+value="12">
+
+<div class="range-value">
+
+<span id="returnValue">12%</span>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Investment Period</label>
+
+<input
+type="range"
+id="sipYears"
+min="1"
+max="40"
+value="20">
+
+<div class="range-value">
+
+<span id="yearValue">20 Years</span>
+
+</div>
+
+</div>
+
+<button
+class="primary-btn"
+id="calculateSIP">
+
+<i class="fa-solid fa-calculator"></i>
+
+Calculate SIP
+
+</button>
+
+</div>
+
+<!-- Right -->
+
+<div class="result-card">
+
+<div class="card-header">
+
+<h2>📊 Investment Result</h2>
+
+</div>
+
+<div class="result-list">
+
+<div class="result-item">
+
+<span>Total Investment</span>
+
+<strong id="totalInvestment">
+
+₹24,00,000
+
+</strong>
+
+</div>
+
+<div class="result-item">
+
+<span>Estimated Returns</span>
+
+<strong
+class="green"
+id="estimatedReturn">
+
+₹75,91,479
+
+</strong>
+
+</div>
+
+<div class="result-item total">
+
+<span>Future Value</span>
+
+<strong
+id="maturityValue">
+
+₹99,91,479
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<canvas
+id="sipProjectionChart">
+
+</canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<!--==========================================
+AI RECOMMENDATION
+===========================================-->
+
+<div class="ai-card">
+
+<div class="card-header">
+
+<h3>
+
+🤖 AI Recommendation
+
+</h3>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<div>
+
+<strong>
+
+Increase Monthly SIP
+
+</strong>
+
+<p>
+
+If you increase your SIP from ₹10,000 to ₹12,000,
+you may accumulate nearly ₹20 lakh more over 20 years.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<div>
+
+<strong>
+
+Expected CAGR
+
+</strong>
+
+<p>
+
+A long-term 12% annual return is assumed for this projection.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-shield-heart"></i>
+
+<div>
+
+<strong>
+
+Investment Health
+
+</strong>
+
+<p>
+
+Your investment plan appears balanced for long-term wealth creation.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--==========================================
+LUMPSUM CALCULATOR
+===========================================-->
+
+<section class="calculator-panel" id="lumpsum">
+
+<div class="calculator-grid">
+
+<!-- Left -->
+
+<div class="calculator-card">
+
+<div class="card-header">
+
+<h2>💰 Lumpsum Calculator</h2>
+
+<p>
+
+Estimate the future value of a one-time investment.
+
+</p>
+
+</div>
+
+<div class="input-group">
+
+<label>Investment Amount (₹)</label>
+
+<input
+type="number"
+id="lumpAmount"
+value="500000"
+min="1000">
+
+</div>
+
+<div class="input-group">
+
+<label>Expected Annual Return (%)</label>
+
+<input
+type="range"
+id="lumpReturn"
+min="1"
+max="20"
+value="12">
+
+<div class="range-value">
+
+<span id="lumpReturnValue">
+
+12%
+
+</span>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Investment Period</label>
+
+<input
+type="range"
+id="lumpYears"
+min="1"
+max="40"
+value="20">
+
+<div class="range-value">
+
+<span id="lumpYearValue">
+
+20 Years
+
+</span>
+
+</div>
+
+</div>
+
+<button
+class="primary-btn"
+id="calculateLumpsum">
+
+<i class="fa-solid fa-calculator"></i>
+
+Calculate Lumpsum
+
+</button>
+
+</div>
+
+<!-- Right -->
+
+<div class="result-card">
+
+<div class="card-header">
+
+<h2>📊 Investment Result</h2>
+
+</div>
+
+<div class="result-list">
+
+<div class="result-item">
+
+<span>Total Investment</span>
+
+<strong id="lumpInvestment">
+
+₹5,00,000
+
+</strong>
+
+</div>
+
+<div class="result-item">
+
+<span>Estimated Returns</span>
+
+<strong
+class="green"
+id="lumpReturnAmount">
+
+₹43,23,000
+
+</strong>
+
+</div>
+
+<div class="result-item total">
+
+<span>Future Value</span>
+
+<strong id="lumpFutureValue">
+
+₹48,23,000
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<canvas
+id="lumpsumChart">
+
+</canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- AI -->
+
+<div class="ai-card">
+
+<div class="card-header">
+
+<h3>
+
+🤖 AI Recommendation
+
+</h3>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<div>
+
+<strong>
+
+Invest for Long Term
+
+</strong>
+
+<p>
+
+A longer investment horizon can significantly improve wealth through compounding.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<div>
+
+<strong>
+
+Expected CAGR
+
+</strong>
+
+<p>
+
+Assuming a 12% annual growth, your wealth can multiply substantially over time.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-shield-heart"></i>
+
+<div>
+
+<strong>
+
+Risk Analysis
+
+</strong>
+
+<p>
+
+Diversify across equity and debt funds for a balanced long-term portfolio.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--==========================================
+SWP CALCULATOR
+===========================================-->
+
+<section class="calculator-panel" id="swp">
+
+<div class="calculator-grid">
+
+<!-- Left -->
+
+<div class="calculator-card">
+
+<div class="card-header">
+
+<h2>🔄 SWP Calculator</h2>
+
+<p>
+
+Estimate your monthly withdrawal while your investment continues to grow.
+
+</p>
+
+</div>
+
+<div class="input-group">
+
+<label>Investment Corpus (₹)</label>
+
+<input
+type="number"
+id="swpCorpus"
+value="5000000"
+min="100000">
+
+</div>
+
+<div class="input-group">
+
+<label>Monthly Withdrawal (₹)</label>
+
+<input
+type="number"
+id="swpWithdrawal"
+value="30000"
+min="1000">
+
+</div>
+
+<div class="input-group">
+
+<label>Expected Annual Return (%)</label>
+
+<input
+type="range"
+id="swpReturn"
+min="1"
+max="20"
+value="10">
+
+<div class="range-value">
+
+<span id="swpReturnValue">
+
+10%
+
+</span>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Withdrawal Period (Years)</label>
+
+<input
+type="range"
+id="swpYears"
+min="1"
+max="40"
+value="20">
+
+<div class="range-value">
+
+<span id="swpYearValue">
+
+20 Years
+
+</span>
+
+</div>
+
+</div>
+
+<button
+class="primary-btn"
+id="calculateSWP">
+
+<i class="fa-solid fa-calculator"></i>
+
+Calculate SWP
+
+</button>
+
+</div>
+
+<!-- Right -->
+
+<div class="result-card">
+
+<div class="card-header">
+
+<h2>📊 SWP Result</h2>
+
+</div>
+
+<div class="result-list">
+
+<div class="result-item">
+
+<span>Initial Corpus</span>
+
+<strong id="swpInvestment">
+
+₹50,00,000
+
+</strong>
+
+</div>
+
+<div class="result-item">
+
+<span>Total Withdrawal</span>
+
+<strong
+class="green"
+id="swpWithdrawTotal">
+
+₹72,00,000
+
+</strong>
+
+</div>
+
+<div class="result-item total">
+
+<span>Estimated Balance</span>
+
+<strong id="swpBalance">
+
+₹18,40,000
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<canvas
+id="swpChart">
+
+</canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- AI -->
+
+<div class="ai-card">
+
+<div class="card-header">
+
+<h3>
+
+🤖 AI SWP Advice
+
+</h3>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<div>
+
+<strong>
+
+Safe Withdrawal
+
+</strong>
+
+<p>
+
+Keeping your withdrawal rate below 4–5% annually generally improves long-term sustainability.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<div>
+
+<strong>
+
+Portfolio Growth
+
+</strong>
+
+<p>
+
+A diversified portfolio may help offset part of your withdrawals through long-term growth.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-shield-heart"></i>
+
+<div>
+
+<strong>
+
+Retirement Planning
+
+</strong>
+
+<p>
+
+Review your SWP annually to keep pace with inflation and changing expenses.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--==========================================
+GOAL PLANNER
+===========================================-->
+
+<section class="calculator-panel" id="goal">
+
+<div class="calculator-grid">
+
+<!-- Left -->
+
+<div class="calculator-card">
+
+<div class="card-header">
+
+<h2>🎯 Goal Planner</h2>
+
+<p>
+
+Plan your future financial goals with smart projections.
+
+</p>
+
+</div>
+
+<div class="input-group">
+
+<label>Goal Amount (₹)</label>
+
+<input
+type="number"
+id="goalAmount"
+value="10000000"
+min="100000">
+
+</div>
+
+<div class="input-group">
+
+<label>Current Savings (₹)</label>
+
+<input
+type="number"
+id="currentSavings"
+value="500000">
+
+</div>
+
+<div class="input-group">
+
+<label>Years to Goal</label>
+
+<input
+type="range"
+id="goalYears"
+min="1"
+max="40"
+value="15">
+
+<div class="range-value">
+
+<span id="goalYearValue">
+
+15 Years
+
+</span>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Expected Return (%)</label>
+
+<input
+type="range"
+id="goalReturn"
+min="1"
+max="20"
+value="12">
+
+<div class="range-value">
+
+<span id="goalReturnValue">
+
+12%
+
+</span>
+
+</div>
+
+</div>
+
+<button
+class="primary-btn"
+id="calculateGoal">
+
+<i class="fa-solid fa-bullseye"></i>
+
+Calculate Goal
+
+</button>
+
+</div>
+
+<!-- Right -->
+
+<div class="result-card">
+
+<div class="card-header">
+
+<h2>🎯 Goal Projection</h2>
+
+</div>
+
+<div class="result-list">
+
+<div class="result-item">
+
+<span>Goal Amount</span>
+
+<strong id="goalTarget">
+
+₹1,00,00,000
+
+</strong>
+
+</div>
+
+<div class="result-item">
+
+<span>Required Monthly SIP</span>
+
+<strong
+class="green"
+id="goalMonthly">
+
+₹21,850
+
+</strong>
+
+</div>
+
+<div class="result-item total">
+
+<span>Achievement Year</span>
+
+<strong id="goalFinish">
+
+2041
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<canvas id="goalChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ai-card">
+
+<div class="card-header">
+
+<h3>🤖 AI Goal Advice</h3>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<div>
+
+<strong>Stay Consistent</strong>
+
+<p>
+
+Increasing your SIP by 10% annually can help you achieve your goal sooner.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="ai-item">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<div>
+
+<strong>Long-Term Growth</strong>
+
+<p>
+
+Maintaining a disciplined investment approach can improve your probability of reaching the target.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================================
+RETIREMENT PLANNER
+===========================================-->
+
+<section class="calculator-panel" id="retirement">
+
+<div class="calculator-grid">
+
+<div class="calculator-card">
+
+<div class="card-header">
+
+<h2>🏖 Retirement Planner</h2>
+
+<p>
+
+Estimate the retirement corpus needed for your future lifestyle.
+
+</p>
+
+</div>
+
+<div class="input-group">
+
+<label>Current Age</label>
+
+<input
+type="number"
+id="currentAge"
+value="35">
+
+</div>
+
+<div class="input-group">
+
+<label>Retirement Age</label>
+
+<input
+type="number"
+id="retirementAge"
+value="60">
+
+</div>
+
+<div class="input-group">
+
+<label>Monthly Expenses (₹)</label>
+
+<input
+type="number"
+id="monthlyExpense"
+value="50000">
+
+</div>
+
+<button
+class="primary-btn"
+id="calculateRetirement">
+
+Calculate Retirement
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<div class="card-header">
+
+<h2>🏦 Retirement Result</h2>
+
+</div>
+
+<div class="result-list">
+
+<div class="result-item">
+
+<span>Required Corpus</span>
+
+<strong id="retirementCorpus">
+
+₹5.25 Cr
+
+</strong>
+
+</div>
+
+<div class="result-item">
+
+<span>Years Remaining</span>
+
+<strong id="retirementYears">
+
+25 Years
+
+</strong>
+
+</div>
+
+<div class="result-item total">
+
+<span>Suggested SIP</span>
+
+<strong id="retirementSip">
+
+₹28,000 / Month
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<canvas id="retirementChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================================
+CHILD EDUCATION PLANNER
+===========================================-->
+
+<section class="calculator-panel" id="education">
+
+<div class="calculator-grid">
+
+<div class="calculator-card">
+
+<div class="card-header">
+
+<h2>🎓 Child Education Planner</h2>
+
+<p>
+
+Estimate the investment required for higher education.
+
+</p>
+
+</div>
+
+<div class="input-group">
+
+<label>Current Education Cost (₹)</label>
+
+<input
+type="number"
+id="educationCost"
+value="2500000">
+
+</div>
+
+<div class="input-group">
+
+<label>Years Remaining</label>
+
+<input
+type="number"
+id="educationYears"
+value="15">
+
+</div>
+
+<button
+class="primary-btn"
+id="calculateEducation">
+
+Calculate Education Goal
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<div class="card-header">
+
+<h2>🎓 Education Result</h2>
+
+</div>
+
+<div class="result-list">
+
+<div class="result-item">
+
+<span>Future Cost</span>
+
+<strong id="futureEducationCost">
+
+₹60,00,000
+
+</strong>
+
+</div>
+
+<div class="result-item">
+
+<span>Required SIP</span>
+
+<strong
+class="green"
+id="educationSip">
+
+₹16,500
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<canvas id="educationChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--==========================================
+FD CALCULATOR
+===========================================-->
+
+<section class="calculator-panel" id="fd">
+
+<div class="calculator-grid">
+
+<div class="calculator-card">
+
+<div class="card-header">
+
+<h2>🏦 Fixed Deposit Calculator</h2>
+
+<p>Estimate maturity value of your Fixed Deposit.</p>
+
+</div>
+
+<div class="input-group">
+
+<label>Deposit Amount (₹)</label>
+
+<input type="number" id="fdAmount" value="100000">
+
+</div>
+
+<div class="input-group">
+
+<label>Interest Rate (%)</label>
+
+<input type="number" id="fdRate" value="7.5">
+
+</div>
+
+<div class="input-group">
+
+<label>Years</label>
+
+<input type="number" id="fdYears" value="5">
+
+</div>
+
+<button class="primary-btn" id="calculateFD">
+
+Calculate FD
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<h2>FD Result</h2>
+
+<div class="result-list">
+
+<div class="result-item">
+
+<span>Maturity Amount</span>
+
+<strong id="fdResult">₹1,43,565</strong>
+
+</div>
+
+</div>
+
+<canvas id="fdChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================================
+RD CALCULATOR
+===========================================-->
+
+<section class="calculator-panel" id="rd">
+
+<div class="calculator-grid">
+
+<div class="calculator-card">
+
+<h2>💰 Recurring Deposit Calculator</h2>
+
+<p>Estimate RD maturity value.</p>
+
+<div class="input-group">
+
+<label>Monthly Deposit</label>
+
+<input type="number" id="rdAmount" value="5000">
+
+</div>
+
+<div class="input-group">
+
+<label>Interest Rate (%)</label>
+
+<input type="number" id="rdRate" value="7">
+
+</div>
+
+<div class="input-group">
+
+<label>Years</label>
+
+<input type="number" id="rdYears" value="5">
+
+</div>
+
+<button class="primary-btn" id="calculateRD">
+
+Calculate RD
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<h2>RD Result</h2>
+
+<strong id="rdResult">₹3,61,200</strong>
+
+<canvas id="rdChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================================
+EMI CALCULATOR
+===========================================-->
+
+<section class="calculator-panel" id="emi">
+
+<div class="calculator-grid">
+
+<div class="calculator-card">
+
+<h2>💳 EMI Calculator</h2>
+
+<p>Calculate monthly EMI for your loan.</p>
+
+<div class="input-group">
+
+<label>Loan Amount</label>
+
+<input type="number" id="loanAmount" value="1000000">
+
+</div>
+
+<div class="input-group">
+
+<label>Interest (%)</label>
+
+<input type="number" id="loanRate" value="9">
+
+</div>
+
+<div class="input-group">
+
+<label>Years</label>
+
+<input type="number" id="loanYears" value="20">
+
+</div>
+
+<button class="primary-btn" id="calculateEMI">
+
+Calculate EMI
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<h2>Monthly EMI</h2>
+
+<strong id="emiResult">
+
+₹8,997
+
+</strong>
+
+<canvas id="emiChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================================
+CAGR CALCULATOR
+===========================================-->
+
+<section class="calculator-panel" id="cagr">
+
+<div class="calculator-grid">
+
+<div class="calculator-card">
+
+<h2>📈 CAGR Calculator</h2>
+
+<p>Calculate annualized investment return.</p>
+
+<div class="input-group">
+
+<label>Initial Value</label>
+
+<input type="number" id="cagrInitial" value="100000">
+
+</div>
+
+<div class="input-group">
+
+<label>Final Value</label>
+
+<input type="number" id="cagrFinal" value="250000">
+
+</div>
+
+<div class="input-group">
+
+<label>Years</label>
+
+<input type="number" id="cagrYears" value="8">
+
+</div>
+
+<button class="primary-btn" id="calculateCAGR">
+
+Calculate CAGR
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<h2>CAGR</h2>
+
+<strong id="cagrResult">
+
+12.14%
+
+</strong>
+
+<canvas id="cagrChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================================
+INFLATION CALCULATOR
+===========================================-->
+
+<section class="calculator-panel" id="inflation">
+
+<div class="calculator-grid">
+
+<div class="calculator-card">
+
+<h2>📉 Inflation Calculator</h2>
+
+<p>Estimate future cost after inflation.</p>
+
+<div class="input-group">
+
+<label>Current Cost</label>
+
+<input type="number" id="inflationAmount" value="1000000">
+
+</div>
+
+<div class="input-group">
+
+<label>Inflation Rate (%)</label>
+
+<input type="number" id="inflationRate" value="6">
+
+</div>
+
+<div class="input-group">
+
+<label>Years</label>
+
+<input type="number" id="inflationYears" value="20">
+
+</div>
+
+<button class="primary-btn" id="calculateInflation">
+
+Calculate
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<h2>Future Cost</h2>
+
+<strong id="inflationResult">
+
+₹32,07,135
+
+</strong>
+
+<canvas id="inflationChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<footer class="calculator-footer">
+
+<p>
+
+© 2026 Investment Sarathi | AI Powered Investment Calculator Suite
+
+</p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/calculators.js"></script>
+
+</body>
+
+</html>

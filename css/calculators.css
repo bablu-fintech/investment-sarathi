@@ -1,0 +1,1240 @@
+
+GOOGLE FONT
+=================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*==================================================
+ROOT VARIABLES
+==================================================*/
+
+:root{
+
+    --primary:#2563EB;
+    --primary-dark:#1D4ED8;
+
+    --success:#10B981;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --bg:#F4F8FD;
+    --white:#FFFFFF;
+
+    --text:#163A70;
+    --text-light:#64748B;
+
+    --border:#E5E7EB;
+
+    --radius:20px;
+
+    --shadow:0 15px 40px rgba(15,23,42,.08);
+
+}
+
+/*==================================================
+RESET
+==================================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+/*==================================================
+LAYOUT
+==================================================*/
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    min-height:100vh;
+
+}
+
+/*==================================================
+SIDEBAR
+==================================================*/
+
+.sidebar{
+
+    background:#fff;
+
+    border-right:1px solid var(--border);
+
+    padding:30px;
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+}
+
+/*==================================================
+LOGO
+==================================================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+.logo img{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:15px;
+
+}
+
+.logo h2{
+
+    font-size:22px;
+
+}
+
+.logo p{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+/*==================================================
+SIDEBAR MENU
+==================================================*/
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebar a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 18px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.sidebar a:hover{
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+}
+
+.sidebar .active a{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:#fff;
+
+}
+
+.sidebar i{
+
+    width:20px;
+
+    text-align:center;
+
+}
+
+/*==================================================
+MAIN CONTENT
+==================================================*/
+
+.main-content{
+
+    padding:35px;
+
+}
+
+/*==================================================
+TOPBAR
+==================================================*/
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.topbar h1{
+
+    font-size:40px;
+
+    margin-bottom:8px;
+
+}
+
+.topbar p{
+
+    color:var(--text-light);
+
+}
+
+/*==================================================
+PRIMARY BUTTON
+==================================================*/
+
+.primary-btn{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px 28px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(37,99,235,.25);
+
+}
+
+.primary-btn i{
+
+    margin-right:8px;
+
+}
+
+/*==================================================
+SUMMARY
+==================================================*/
+
+.calculator-summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:24px;
+
+    margin-bottom:35px;
+
+}
+
+.summary-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.summary-card h5{
+
+    color:var(--text-light);
+
+    margin-bottom:10px;
+
+}
+
+.summary-card h2{
+
+    font-size:34px;
+
+    margin-bottom:8px;
+
+}
+
+.summary-card p{
+
+    color:var(--success);
+
+    font-weight:600;
+
+}
+
+.green{
+
+    color:var(--success)!important;
+
+}
+/*==================================================
+CALCULATOR TABS
+==================================================*/
+
+.calculator-tabs{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+
+}
+
+.tab-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 22px;
+
+    border:none;
+
+    background:#fff;
+
+    color:var(--text);
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.tab-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+}
+
+.tab-btn.active{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    color:#fff;
+
+}
+
+.tab-btn i{
+
+    font-size:18px;
+
+}
+
+/*==================================================
+CALCULATOR PANEL
+==================================================*/
+
+.calculator-panel{
+
+    display:none;
+
+    animation:fadeIn .4s ease;
+
+}
+
+.calculator-panel.active{
+
+    display:block;
+
+}
+
+/*==================================================
+CALCULATOR GRID
+==================================================*/
+
+.calculator-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    margin-bottom:35px;
+
+}
+
+/*==================================================
+CALCULATOR CARD
+==================================================*/
+
+.calculator-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.card-header{
+
+    margin-bottom:25px;
+
+}
+
+.card-header h2{
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+.card-header h3{
+
+    font-size:22px;
+
+}
+
+.card-header p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+/*==================================================
+INPUT GROUP
+==================================================*/
+
+.input-group{
+
+    margin-bottom:25px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+.input-group input[type="number"]{
+
+    width:100%;
+
+    height:54px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:0 18px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.input-group input[type="number"]:focus{
+
+    border-color:var(--primary);
+
+}
+
+.input-group input[type="range"]{
+
+    width:100%;
+
+    accent-color:var(--primary);
+
+    margin:15px 0;
+
+}
+
+.range-value{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.range-value span{
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+
+/*==================================================
+RESULT CARD
+==================================================*/
+
+.result-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.result-list{
+
+    margin-bottom:25px;
+
+}
+
+.result-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.result-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.result-item span{
+
+    color:var(--text-light);
+
+}
+
+.result-item strong{
+
+    font-size:20px;
+
+}
+
+.result-item.total strong{
+
+    color:var(--primary);
+
+    font-size:28px;
+
+}
+
+/*==================================================
+CHART BOX
+==================================================*/
+
+.chart-box{
+
+    margin-top:30px;
+
+    height:320px;
+
+}
+
+.chart-box canvas{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+/*==================================================
+ANIMATION
+==================================================*/
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/*==================================================
+AI RECOMMENDATION
+==================================================*/
+
+.ai-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:35px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.ai-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    padding:18px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.ai-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.ai-item i{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:#EEF4FF;
+
+    color:var(--primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    flex-shrink:0;
+
+}
+
+.ai-item strong{
+
+    display:block;
+
+    font-size:17px;
+
+    margin-bottom:6px;
+
+}
+
+.ai-item p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+INFO CARD
+==================================================*/
+
+.info-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.info-card h3{
+
+    font-size:24px;
+
+    margin-bottom:20px;
+
+}
+
+.info-list{
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+.info-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.info-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.info-item span{
+
+    color:var(--text-light);
+
+}
+
+.info-item strong{
+
+    font-size:17px;
+
+}
+
+/*==================================================
+GOAL BOX
+==================================================*/
+
+.goal-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+    margin-top:25px;
+
+}
+
+.goal-box{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.goal-box:hover{
+
+    transform:translateY(-8px);
+
+    background:#EEF4FF;
+
+}
+
+.goal-box h4{
+
+    margin-bottom:15px;
+
+}
+
+.goal-box h2{
+
+    color:var(--primary);
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.goal-box p{
+
+    color:var(--text-light);
+
+}
+
+/*==================================================
+EXPORT SECTION
+==================================================*/
+
+.export-section{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:18px;
+
+    margin:35px 0;
+
+}
+
+.secondary-btn{
+
+    background:#fff;
+
+    color:var(--primary);
+
+    border:2px solid var(--primary);
+
+}
+
+.secondary-btn:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/*==================================================
+FOOTER
+==================================================*/
+
+.calculator-footer{
+
+    margin-top:50px;
+
+    padding:25px 0;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    border-top:1px solid var(--border);
+
+}
+
+/*==================================================
+CARD HOVER EFFECT
+==================================================*/
+
+.summary-card,
+.calculator-card,
+.result-card,
+.ai-card,
+.goal-box,
+.info-card{
+
+    transition:.35s;
+
+}
+
+.summary-card:hover,
+.calculator-card:hover,
+.result-card:hover,
+.ai-card:hover,
+.goal-box:hover,
+.info-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 25px 55px rgba(0,0,0,.12);
+
+}
+/*==================================================
+RESPONSIVE DESIGN
+==================================================*/
+
+@media (max-width:1400px){
+
+    .calculator-summary{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:1200px){
+
+    .dashboard{
+
+        grid-template-columns:240px 1fr;
+
+    }
+
+    .calculator-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .goal-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+        border-right:none;
+
+        border-bottom:1px solid var(--border);
+
+    }
+
+    .main-content{
+
+        padding:25px;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .calculator-summary{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .calculator-tabs{
+
+        justify-content:flex-start;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .calculator-summary{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .goal-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .tab-btn{
+
+        flex:1 1 calc(50% - 10px);
+
+        justify-content:center;
+
+    }
+
+    .topbar h1{
+
+        font-size:30px;
+
+    }
+
+    .primary-btn{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .main-content{
+
+        padding:18px;
+
+    }
+
+    .calculator-card,
+    .result-card,
+    .summary-card,
+    .ai-card{
+
+        padding:22px;
+
+    }
+
+    .tab-btn{
+
+        flex:1 1 100%;
+
+    }
+
+    .card-header h2{
+
+        font-size:22px;
+
+    }
+
+    .result-item strong{
+
+        font-size:18px;
+
+    }
+
+    .result-item.total strong{
+
+        font-size:22px;
+
+    }
+
+}
+
+/*==================================================
+SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EEF2F7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/*==================================================
+SELECTION
+==================================================*/
+
+::selection{
+
+    background:#2563EB;
+
+    color:#fff;
+
+}
+
+/*==================================================
+FOCUS
+==================================================*/
+
+button:focus,
+input:focus{
+
+    outline:none;
+
+}
+
+/*==================================================
+SMOOTH TRANSITIONS
+==================================================*/
+
+button,
+input,
+.summary-card,
+.calculator-card,
+.result-card,
+.ai-card,
+.goal-box,
+.tab-btn{
+
+    transition:all .3s ease;
+
+}
+
+/*==================================================
+UTILITY CLASSES
+==================================================*/
+
+.text-success{
+
+    color:var(--success);
+
+}
+
+.text-danger{
+
+    color:var(--danger);
+
+}
+
+.text-warning{
+
+    color:var(--warning);
+
+}
+
+.text-primary{
+
+    color:var(--primary);
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.show{
+
+    display:block !important;
+
+}
+
+/*==================================================
+END OF FILE
+==================================================*/
